@@ -1,0 +1,788 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         08/Jun/2017  17:40:40 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\Source\gizwits_product.c          #
+#    Command line       =  -f E:\work\smartlight\ZigLight001\Projects\zstack\ #
+#                          Samples\ZigLightApp\CC2530DB\..\..\..\Tools\CC2530 #
+#                          DB\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func     #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f E:\work\smartlight\ZigLight001\Projects\zstack\ #
+#                          Samples\ZigLightApp\CC2530DB\..\..\..\Tools\CC2530 #
+#                          DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0           #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFF00                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 E:\work\smartlight\ZigLight #
+#                          001\Projects\zstack\Samples\ZigLightApp\Source\giz #
+#                          wits_product.c -D ZTOOL_P1 -D NV_RESTORE -D        #
+#                          MWK_MANAGER -D xMT_TASK -D xMT_SYS_FUNC -D         #
+#                          xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -lC           #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\CoordinatorEB\List\ -lA  #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\CoordinatorEB\List\      #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\CoordinatorEB\Obj\ -e    #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I E:\work\smartlight\ZigLight001\Projects\zstack\ #
+#                          Samples\ZigLightApp\CC2530DB\ -I                   #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\Source\ -I            #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\ZMain\TI2530DB\ #
+#                           -I E:\work\smartlight\ZigLight001\Projects\zstack #
+#                          \Samples\ZigLightApp\CC2530DB\..\..\..\..\..\Compo #
+#                          nents\hal\include\ -I E:\work\smartlight\ZigLight0 #
+#                          01\Projects\zstack\Samples\ZigLightApp\CC2530DB\.. #
+#                          \..\..\..\..\Components\hal\target\CC2530EB\ -I    #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\mac\include\ -I E:\work\smartlight\ZigLight001\P #
+#                          rojects\zstack\Samples\ZigLightApp\CC2530DB\..\..\ #
+#                          ..\..\..\Components\mac\high_level\ -I             #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\mac\low_level\srf04\ -I                          #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\mac\low_level\srf04\single_chip\ -I              #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\mt\ -I E:\work\smartlight\ZigLight001\Projects\z #
+#                          stack\Samples\ZigLightApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\osal\include\ -I                        #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\services\saddr\ -I E:\work\smartlight\ZigLight00 #
+#                          1\Projects\zstack\Samples\ZigLightApp\CC2530DB\..\ #
+#                          ..\..\..\..\Components\services\sdata\ -I          #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\stack\af\ -I E:\work\smartlight\ZigLight001\Proj #
+#                          ects\zstack\Samples\ZigLightApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\nwk\ -I                     #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\stack\sapi\ -I E:\work\smartlight\ZigLight001\Pr #
+#                          ojects\zstack\Samples\ZigLightApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\sec\ -I                   #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\stack\sys\ -I E:\work\smartlight\ZigLight001\Pro #
+#                          jects\zstack\Samples\ZigLightApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\stack\zdo\ -I                    #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\zmac\ -I E:\work\smartlight\ZigLight001\Projects #
+#                          \zstack\Samples\ZigLightApp\CC2530DB\..\..\..\..\. #
+#                          .\Components\zmac\f8w\ -Ohz --require_prototypes   #
+#    List file          =  E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\CoordinatorEB\List\gizwi #
+#                          ts_product.lst                                     #
+#    Object file        =  E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\CoordinatorEB\Obj\gizwit #
+#                          s_product.r51                                      #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+E:\work\smartlight\ZigLight001\Projects\zstack\Samples\ZigLightApp\Source\gizwits_product.c
+      1          /**
+      2          ************************************************************
+      3          * @file         gizwits_product.c
+      4          * @brief        Gizwits 控制协议处理,及平台相关的硬件初始�?
+      5          * @author       Gizwits
+      6          * @date         2016-09-05
+      7          * @version      V03010101
+      8          * @copyright    Gizwits
+      9          * 
+     10          * @note         机智�?只为智能硬件而生
+     11          *               Gizwits Smart Cloud  for Smart Products
+     12          *               链接|增值ֵ|开放|中立|安全|自有|自由|生�?*               www.gizwits.com
+     13          *
+     14          ***********************************************************/
+     15          
+     16          #include <stdio.h>
+     17          #include <string.h>
+     18          #include "gizwits_protocol.h"
+     19          #include "List1.h"
+     20          #define SERIAL_INCOMING_MSG                  0xE1//by liu
+     21          int8 gizwitsEventProcess(eventInfo_t *info, uint8 *data, uint32 len);//by liu
+     22          void gizTimerMs(void);//by liu
+     23          uint32 gizGetTimerCount(void);//by liu
+     24          void TIMER_IRQ_FUN(void);//by liu
+     25          void UART_IRQ_FUN(void);//by liu
+     26          extern uint16 HalUARTWrite(uint8 port, uint8 *buf, uint16 len);//by liu
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     27          uint8 MacToAppFlag = 0;//by liu
+   \                     MacToAppFlag:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     28          uint8 AutoUpateMac = 0;//by liu
+   \                     AutoUpateMac:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     29          extern Node *nodelist;//by liu
+     30          extern uint8 ZigLightApp_TaskID;
+     31          typedef struct
+     32          {
+     33            osal_event_hdr_t  hdr;
+     34            uint8             *msg;
+     35          } gizOSALData_t;
+     36          /**@} */
+     37          /**@name Gizwits 用户API接口
+     38          * @{
+     39          */
+     40          extern dataPoint_t currentDataPoint;
+     41          
+     42          /**
+     43          * @brief 事件处理接口
+     44          
+     45          * 说明�?
+     46          * 1.用户可以对WiFi模组状态的变化进行自定义的处理
+     47          
+     48          * 2.用户可以在该函数内添加数据点事件处理逻辑，如调用相关硬件外设的操作接�?
+     49          * @param[in] info : 事件队列
+     50          * @param[in] data : 协议数据
+     51          * @param[in] len : 协议数据长度
+     52          * @return NULL
+     53          * @ref gizwits_protocol.h
+     54          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     55          int8 gizwitsEventProcess(eventInfo_t *info, uint8 *data, uint32 len)
+   \                     gizwitsEventProcess:
+     56          {
+   \   000000   74EC         MOV     A,#-0x14
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 20
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 8,R2
+   \   000007   8B..         MOV     ?V0 + 9,R3
+   \   000009   8C..         MOV     ?V0 + 0,R4
+   \   00000B   8D..         MOV     ?V0 + 1,R5
+     57            uint8 i = 0;
+     58            dataPoint_t *dataPointPtr = (dataPoint_t *)data;
+     59            moduleStatusInfo_t *wifiData = (moduleStatusInfo_t *)data;
+                                       ^
+Warning[Pe177]: variable "wifiData" was declared but never referenced
+     60            protocolTime_t *ptime = (protocolTime_t *)data;
+                                   ^
+Warning[Pe177]: variable "ptime" was declared but never referenced
+     61            static Node * nodeptr=NULL;
+                                 ^
+Warning[Pe177]: variable "nodeptr" was declared but never referenced
+     62            static uint8 sn = 0;
+                                ^
+Warning[Pe177]: variable "sn" was declared but never referenced
+     63            uint8 pos;
+                         ^
+Warning[Pe177]: variable "pos" was declared but never referenced
+     64            gizOSALData_t  *pMsg;
+     65            if((NULL == info) || (NULL == data))
+   \   00000D   EA           MOV     A,R2
+   \   00000E   45..         ORL     A,?V0 + 9
+   \   000010   6005         JZ      ??gizwitsEventProcess_0
+   \   000012   EC           MOV     A,R4
+   \   000013   45..         ORL     A,?V0 + 1
+   \   000015   7005         JNZ     ??gizwitsEventProcess_1
+     66            {
+     67              return -1;
+   \                     ??gizwitsEventProcess_0:
+   \   000017   79FF         MOV     R1,#-0x1
+   \   000019   02....       LJMP    ??gizwitsEventProcess_2 & 0xFFFF
+     68            }
+     69          
+     70            for(i=0; i<info->num; i++)
+   \                     ??gizwitsEventProcess_1:
+   \   00001C   75..00       MOV     ?V0 + 2,#0x0
+   \   00001F   8070         SJMP    ??gizwitsEventProcess_3
+     71            {
+     72              switch(info->event[i])
+     73              {
+     74          
+     75          
+     76          
+     77                case EVENT_PAYLOAD:
+     78                  GIZWITS_LOG("Evt: EVENT_PAYLOAD\n");
+     79                  osal_memcpy((uint8 *)&currentDataPoint.valuepayload,"AutoUpdate DeviceMac",20);
+     80                  //user handle
+     81                  switch(dataPointPtr->valuepayload[0])
+     82                  {
+     83                  case 0x01://�����豸
+     84                    MacToAppFlag = 1;
+     85          //          if(nodeptr == NULL){
+     86          //            MacToAppFlag = 1;
+     87          //            nodeptr = nodelist;
+     88          //            sn = dataPointPtr->valueaa1[1];
+     89          //            for(i=0;i<20;i++)
+     90          //              currentDataPoint.valueaa1[i]=0;
+     91          //          }
+     92          //          for(pos=0;nodeptr&&pos<=1;nodeptr=nodeptr->next,pos++)
+     93          //          {
+     94          //            osal_memcpy((uint8 *)&currentDataPoint.valueaa1[3+8*pos],(uint8 *)&nodeptr->extaddr, 8);
+     95          //          }
+     96          //          if(nodeptr == NULL){
+     97          //            MacToAppFlag = 0;
+     98          //          }
+     99          //          currentDataPoint.valueaa1[0]=0x10;
+    100          //          currentDataPoint.valueaa1[1]=pos;
+    101          //          currentDataPoint.valueaa1[2]=sn;
+    102                    break;
+    103                  case 0x02://��������
+    104                    /* Allocate memory for the data */
+    105                    pMsg = (gizOSALData_t *)osal_msg_allocate( sizeof ( gizOSALData_t ) + 14 );
+   \                     ??gizwitsEventProcess_4:
+   \   000021                ; Setup parameters for call to function osal_msg_allocate
+   \   000021   7A12         MOV     R2,#0x12
+   \   000023   7B00         MOV     R3,#0x0
+   \   000025   12....       LCALL   ??osal_msg_allocate?relay
+   \   000028   8A..         MOV     ?V0 + 4,R2
+   \   00002A   8B..         MOV     ?V0 + 5,R3
+   \   00002C   AE..         MOV     R6,?V0 + 4
+   \   00002E   AF..         MOV     R7,?V0 + 5
+    106                    pMsg->hdr.event = SERIAL_INCOMING_MSG;
+   \   000030   8E82         MOV     DPL,R6
+   \   000032   8F83         MOV     DPH,R7
+   \   000034   74E1         MOV     A,#-0x1f
+   \   000036   F0           MOVX    @DPTR,A
+    107                    pMsg->msg = (uint8*)(pMsg+1);
+   \   000037   EE           MOV     A,R6
+   \   000038   2402         ADD     A,#0x2
+   \   00003A   F8           MOV     R0,A
+   \   00003B   EF           MOV     A,R7
+   \   00003C   3400         ADDC    A,#0x0
+   \   00003E   F9           MOV     R1,A
+   \   00003F   88..         MOV     ?V0 + 10,R0
+   \   000041   89..         MOV     ?V0 + 11,R1
+   \   000043   EE           MOV     A,R6
+   \   000044   2404         ADD     A,#0x4
+   \   000046   08           INC     R0
+   \   000047   08           INC     R0
+   \   000048   EF           MOV     A,R7
+   \   000049   3400         ADDC    A,#0x0
+   \   00004B   F9           MOV     R1,A
+   \   00004C   85..82       MOV     DPL,?V0 + 10
+   \   00004F   85..83       MOV     DPH,?V0 + 11
+   \   000052   E8           MOV     A,R0
+   \   000053   F0           MOVX    @DPTR,A
+   \   000054   A3           INC     DPTR
+   \   000055   E9           MOV     A,R1
+   \   000056   F0           MOVX    @DPTR,A
+    108                    osal_memcpy((uint8 *)pMsg->msg,(uint8 *)&dataPointPtr->valuepayload[2], 14);
+   \   000057                ; Setup parameters for call to function osal_memcpy
+   \   000057   85..82       MOV     DPL,?V0 + 0
+   \   00005A   85..83       MOV     DPH,?V0 + 1
+   \   00005D   A3           INC     DPTR
+   \   00005E   A3           INC     DPTR
+   \   00005F   A982         MOV     R1,DPL
+   \   000061   AA83         MOV     R2,DPH
+   \   000063   89..         MOV     ?V0 + 4,R1
+   \   000065   8A..         MOV     ?V0 + 5,R2
+   \   000067   78..         MOV     R0,#?V0 + 4
+   \   000069   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   00006C   7C0E         MOV     R4,#0xe
+   \   00006E   7D00         MOV     R5,#0x0
+   \   000070   85..82       MOV     DPL,?V0 + 10
+   \   000073   85..83       MOV     DPH,?V0 + 11
+   \   000076   E0           MOVX    A,@DPTR
+   \   000077   FA           MOV     R2,A
+   \   000078   A3           INC     DPTR
+   \   000079   E0           MOVX    A,@DPTR
+   \   00007A   FB           MOV     R3,A
+   \   00007B   12....       LCALL   ??osal_memcpy?relay
+   \   00007E   7403         MOV     A,#0x3
+   \   000080   12....       LCALL   ?DEALLOC_XSTACK8
+    109                    osal_msg_send( ZigLightApp_TaskID, (byte *)pMsg );
+   \   000083                ; Setup parameters for call to function osal_msg_send
+   \   000083   EE           MOV     A,R6
+   \   000084   FA           MOV     R2,A
+   \   000085   EF           MOV     A,R7
+   \   000086   FB           MOV     R3,A
+   \   000087   90....       MOV     DPTR,#ZigLightApp_TaskID
+   \   00008A   E0           MOVX    A,@DPTR
+   \   00008B   F9           MOV     R1,A
+   \   00008C   12....       LCALL   ??osal_msg_send?relay
+    110                    break;
+   \                     ??gizwitsEventProcess_5:
+   \   00008F   05..         INC     ?V0 + 2
+   \                     ??gizwitsEventProcess_3:
+   \   000091   85..82       MOV     DPL,?V0 + 8
+   \   000094   85..83       MOV     DPH,?V0 + 9
+   \   000097   E0           MOVX    A,@DPTR
+   \   000098   F8           MOV     R0,A
+   \   000099   E5..         MOV     A,?V0 + 2
+   \   00009B   C3           CLR     C
+   \   00009C   98           SUBB    A,R0
+   \   00009D   504D         JNC     ??gizwitsEventProcess_6
+   \   00009F   85....       MOV     ?V0 + 4,?V0 + 2
+   \   0000A2   E5..         MOV     A,?V0 + 8
+   \   0000A4   25..         ADD     A,?V0 + 4
+   \   0000A6   F582         MOV     DPL,A
+   \   0000A8   E5..         MOV     A,?V0 + 9
+   \   0000AA   3400         ADDC    A,#0x0
+   \   0000AC   F583         MOV     DPH,A
+   \   0000AE   A3           INC     DPTR
+   \   0000AF   E0           MOVX    A,@DPTR
+   \   0000B0   6410         XRL     A,#0x10
+   \   0000B2   70DB         JNZ     ??gizwitsEventProcess_5
+   \   0000B4                ; Setup parameters for call to function osal_memcpy
+   \   0000B4   75....       MOV     ?V0 + 4,#`?<Constant "AutoUpdate DeviceMac">` & 0xff
+   \   0000B7   75....       MOV     ?V0 + 5,#(`?<Constant "AutoUpdate DeviceMac">` >> 8) & 0xff
+   \   0000BA   75..00       MOV     ?V0 + 6,#0x0
+   \   0000BD   78..         MOV     R0,#?V0 + 4
+   \   0000BF   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   0000C2   7C14         MOV     R4,#0x14
+   \   0000C4   7D00         MOV     R5,#0x0
+   \   0000C6   7A..         MOV     R2,#currentDataPoint & 0xff
+   \   0000C8   7B..         MOV     R3,#(currentDataPoint >> 8) & 0xff
+   \   0000CA   12....       LCALL   ??osal_memcpy?relay
+   \   0000CD   7403         MOV     A,#0x3
+   \   0000CF   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000D2   85..82       MOV     DPL,?V0 + 0
+   \   0000D5   85..83       MOV     DPH,?V0 + 1
+   \   0000D8   E0           MOVX    A,@DPTR
+   \   0000D9   14           DEC     A
+   \   0000DA   6008         JZ      ??gizwitsEventProcess_7
+   \   0000DC   14           DEC     A
+   \   0000DD   7003         JNZ     $+5
+   \   0000DF   02....       LJMP    ??gizwitsEventProcess_4 & 0xFFFF
+   \   0000E2   80AB         SJMP    ??gizwitsEventProcess_5
+   \                     ??gizwitsEventProcess_7:
+   \   0000E4   90....       MOV     DPTR,#MacToAppFlag
+   \   0000E7   7401         MOV     A,#0x1
+   \   0000E9   F0           MOVX    @DPTR,A
+   \   0000EA   80A3         SJMP    ??gizwitsEventProcess_5
+    111                  default:
+    112                    break;
+    113                  }
+    114                  
+    115                  break;
+    116          
+    117                case WIFI_SOFTAP:
+    118                  break;
+    119                case WIFI_AIRLINK:
+    120                  break;
+    121                case WIFI_STATION:
+    122                  break;
+    123                case WIFI_CON_ROUTER:
+    124                  break;
+    125                case WIFI_DISCON_ROUTER:
+    126                  break;
+    127                case WIFI_CON_M2M:
+    128                  break;
+    129                case WIFI_DISCON_M2M:
+    130                  break;
+    131                case WIFI_RSSI:
+    132                  GIZWITS_LOG("RSSI %d\n", wifiData->rssi);
+    133                  break;
+    134                case TRANSPARENT_DATA:
+    135                  GIZWITS_LOG("TRANSPARENT_DATA \n");
+    136                  //user handle , Fetch data from [data] , size is [len]
+    137                  break;
+    138                case WIFI_NTP:
+    139                  GIZWITS_LOG("WIFI_NTP : [%d-%d-%d %02d:%02d:%02d][%d] \n",ptime->year,ptime->month,ptime->day,ptime->hour,ptime->minute,ptime->second,ptime->ntp);
+    140                  break;
+    141                default:
+    142                  break;
+    143              }
+    144            }
+    145          
+    146            return 0;
+   \                     ??gizwitsEventProcess_6:
+   \   0000EC   7900         MOV     R1,#0x0
+   \                     ??gizwitsEventProcess_2:
+   \   0000EE                REQUIRE ?Subroutine0
+   \   0000EE                ; // Fall through to label ?Subroutine0
+    147          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F0C         MOV     R7,#0xc
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    148          
+    149          
+    150          /**@} */
+    151          
+    152          /**
+    153          * @brief MCU复位函数
+    154          
+    155          * @param none
+    156          * @return none
+    157          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    158          void mcuRestart(void)
+   \                     mcuRestart:
+    159          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    160          
+    161          }
+   \   000000   02....       LJMP    ?BRET
+    162          
+    163          /**@} */
+    164          /**
+    165          * @brief 系统毫秒计时维护函数,毫秒自增,溢出归零
+    166          
+    167          * @param none
+    168          * @return none
+    169          */
+    170          //static uint32 timerMsCount;
+    171          //void gizTimerMs(void)
+    172          //{
+    173          //    timerMsCount++;
+    174          //}
+    175          
+    176          /**
+    177          * @brief 读取系统时间毫秒计时�?
+    178          * @param none
+    179          * @return 系统时间毫秒�?*/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    180          uint32 gizGetTimerCount(void)
+   \                     gizGetTimerCount:
+    181          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    182              return osal_GetSystemClock();
+   \   000004                ; Setup parameters for call to function osal_GetSystemClock
+   \   000004   12....       LCALL   ??osal_GetSystemClock?relay
+   \   000007                REQUIRE ?Subroutine1
+   \   000007                ; // Fall through to label ?Subroutine1
+    183          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    184          
+    185          /**
+    186          * @brief 定时器TIM3中断处理函数
+    187          
+    188          * @param none
+    189          * @return none
+    190          */
+    191          //void TIMER_IRQ_FUN(void)
+    192          //{
+    193          //  gizTimerMs();
+    194          //}
+    195          
+    196          /**
+    197          * @brief USART2串口中断函数
+    198          
+    199          * 接收功能，用于接收与WiFi模组间的串口协议数据
+    200          * @param none
+    201          * @return none
+    202          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    203          void UART_IRQ_FUN(void)
+   \                     UART_IRQ_FUN:
+    204          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 1
+   \   000004   74FF         MOV     A,#-0x1
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    205            uint8 value = 0;
+   \   000009   85..82       MOV     DPL,?XSP + 0
+   \   00000C   85..83       MOV     DPH,?XSP + 1
+   \   00000F   E4           CLR     A
+   \   000010   F0           MOVX    @DPTR,A
+    206            //value = USART_ReceiveData(USART2);//STM32 test demo
+    207            gizPutData(&value, 1);
+   \   000011                ; Setup parameters for call to function gizPutData
+   \   000011   90....       MOV     DPTR,#__Constant_1
+   \   000014   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   000017   7404         MOV     A,#0x4
+   \   000019   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001C   AA82         MOV     R2,DPL
+   \   00001E   AB83         MOV     R3,DPH
+   \   000020   12....       LCALL   ??gizPutData?relay
+   \   000023   7404         MOV     A,#0x4
+   \   000025   12....       LCALL   ?DEALLOC_XSTACK8
+    208          }
+   \   000028   7401         MOV     A,#0x1
+   \   00002A   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00002D   80..         SJMP    ?Subroutine1
+    209          
+    210          
+    211          /**
+    212          * @brief 串口写操作，发送数据到WiFi模组
+    213          *
+    214          * @param buf      : 数据地址
+    215          * @param len       : 数据长度
+    216          *
+    217          * @return : 正确返回有效数据长度;-1，错误返�?*/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    218          uint32 uartWrite(uint8 *buf, uint32 len)
+   \                     uartWrite:
+    219          {
+   \   000000   74EC         MOV     A,#-0x14
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 20
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EA           MOV     A,R2
+   \   00000B   FE           MOV     R6,A
+   \   00000C   EB           MOV     A,R3
+   \   00000D   FF           MOV     R7,A
+   \   00000E   7415         MOV     A,#0x15
+   \   000010   12....       LCALL   ?XSTACK_DISP0_8
+   \   000013   78..         MOV     R0,#?V0 + 4
+   \   000015   12....       LCALL   ?L_MOV_X
+    220              uint32 i = 0;
+    221              uint8 appendex=0x55;
+   \   000018   85..82       MOV     DPL,?XSP + 0
+   \   00001B   85..83       MOV     DPH,?XSP + 1
+   \   00001E   7455         MOV     A,#0x55
+   \   000020   F0           MOVX    @DPTR,A
+    222              if(NULL == buf || len == 0)
+   \   000021   EE           MOV     A,R6
+   \   000022   4F           ORL     A,R7
+   \   000023   600A         JZ      ??uartWrite_0
+   \   000025   E5..         MOV     A,?V0 + 4
+   \   000027   45..         ORL     A,?V0 + 5
+   \   000029   45..         ORL     A,?V0 + 6
+   \   00002B   45..         ORL     A,?V0 + 7
+   \   00002D   700A         JNZ     ??uartWrite_1
+    223              {
+    224                  return 0;
+   \                     ??uartWrite_0:
+   \   00002F   7A00         MOV     R2,#0x0
+   \   000031   7B00         MOV     R3,#0x0
+   \   000033   7C00         MOV     R4,#0x0
+   \   000035   7D00         MOV     R5,#0x0
+   \   000037   8063         SJMP    ??uartWrite_2
+    225              }
+    226          #ifdef PROTOCOL_DEBUG
+    227              GIZWITS_LOG("MCU2WiFi[%4d:%4d]: ", gizGetTimerCount(), len);
+    228          #endif
+    229              
+    230              for(i=0; i<len; i++)
+   \                     ??uartWrite_1:
+   \   000039   90....       MOV     DPTR,#__Constant_0
+   \   00003C   78..         MOV     R0,#?V0 + 8
+   \   00003E   12....       LCALL   ?L_MOV_X
+    231              {
+    232                  //USART_SendData(UART, buf[i]);//STM32 test demo
+    233                  //实现串口发送函�?将buf[i]发送到模组
+    234                HalUARTWrite(0,&buf[i],1);
+   \                     ??uartWrite_3:
+   \   000041                ; Setup parameters for call to function HalUARTWrite
+   \   000041   7C01         MOV     R4,#0x1
+   \   000043   7D00         MOV     R5,#0x0
+   \   000045   85....       MOV     ?V0 + 0,?V0 + 8
+   \   000048   85....       MOV     ?V0 + 1,?V0 + 9
+   \   00004B   EE           MOV     A,R6
+   \   00004C   25..         ADD     A,?V0 + 0
+   \   00004E   FA           MOV     R2,A
+   \   00004F   EF           MOV     A,R7
+   \   000050   35..         ADDC    A,?V0 + 1
+   \   000052   FB           MOV     R3,A
+   \   000053   7900         MOV     R1,#0x0
+   \   000055   12....       LCALL   ??HalUARTWrite?relay
+    235          #ifdef PROTOCOL_DEBUG
+    236                  GIZWITS_LOG("%02x ", buf[i]);
+    237          #endif
+    238                  if(i >=2 && buf[i] == 0xFF)
+   \   000058   90....       MOV     DPTR,#__Constant_2
+   \   00005B   78..         MOV     R0,#?V0 + 8
+   \   00005D   12....       LCALL   ?UL_GE_X
+   \   000060   5021         JNC     ??uartWrite_4
+   \   000062   EE           MOV     A,R6
+   \   000063   25..         ADD     A,?V0 + 0
+   \   000065   F582         MOV     DPL,A
+   \   000067   EF           MOV     A,R7
+   \   000068   35..         ADDC    A,?V0 + 1
+   \   00006A   F583         MOV     DPH,A
+   \   00006C   E0           MOVX    A,@DPTR
+   \   00006D   F4           CPL     A
+   \   00006E   7013         JNZ     ??uartWrite_4
+    239                  {
+    240                    //实现串口发送函�?�?x55发送到模组
+    241                    HalUARTWrite(0,&appendex,1);
+   \   000070                ; Setup parameters for call to function HalUARTWrite
+   \   000070   7C01         MOV     R4,#0x1
+   \   000072   7D00         MOV     R5,#0x0
+   \   000074   85..82       MOV     DPL,?XSP + 0
+   \   000077   85..83       MOV     DPH,?XSP + 1
+   \   00007A   AA82         MOV     R2,DPL
+   \   00007C   AB83         MOV     R3,DPH
+   \   00007E   7900         MOV     R1,#0x0
+   \   000080   12....       LCALL   ??HalUARTWrite?relay
+    242          #ifdef PROTOCOL_DEBUG
+    243                  GIZWITS_LOG("%02x ", 0x55);
+    244          #endif
+    245                  }
+    246              }
+   \                     ??uartWrite_4:
+   \   000083   90....       MOV     DPTR,#__Constant_1
+   \   000086   78..         MOV     R0,#?V0 + 8
+   \   000088   12....       LCALL   ?L_ADD_X
+   \   00008B   78..         MOV     R0,#?V0 + 4
+   \   00008D   79..         MOV     R1,#?V0 + 8
+   \   00008F   12....       LCALL   ?UL_GT
+   \   000092   40AD         JC      ??uartWrite_3
+    247              
+    248          #ifdef PROTOCOL_DEBUG
+    249              GIZWITS_LOG("\n");
+    250          #endif
+    251              
+    252              return len;
+   \   000094   AA..         MOV     R2,?V0 + 4
+   \   000096   AB..         MOV     R3,?V0 + 5
+   \   000098   AC..         MOV     R4,?V0 + 6
+   \   00009A   AD..         MOV     R5,?V0 + 7
+   \                     ??uartWrite_2:
+   \   00009C   7401         MOV     A,#0x1
+   \   00009E   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000A1   02....       LJMP    ?Subroutine0 & 0xFFFF
+    253          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??gizwitsEventProcess?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    gizwitsEventProcess
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??mcuRestart?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    mcuRestart
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??gizGetTimerCount?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    gizGetTimerCount
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??UART_IRQ_FUN?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    UART_IRQ_FUN
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??uartWrite?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    uartWrite
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "AutoUpdate DeviceMac">`:
+   \   000000   4175746F     DB "AutoUpdate DeviceMac"
+   \            55706461
+   \            74652044
+   \            65766963
+   \            654D6163
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_1:
+   \   000000   01000000     DD 1
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_0:
+   \   000000   00000000     DD 0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_2:
+   \   000000   02000000     DD 2
+    254          
+    255          
+
+   Maximum stack usage in bytes:
+
+     Function                 ISTACK PSTACK XSTACK
+     --------                 ------ ------ ------
+     UART_IRQ_FUN                 2      0      5
+       -> gizPutData              4      0     10
+     gizGetTimerCount             2      0      0
+       -> osal_GetSystemClock     4      0      0
+     gizwitsEventProcess          0      0     27
+       -> osal_msg_allocate       0      0     40
+       -> osal_memcpy             0      0     46
+       -> osal_msg_send           0      0     40
+       -> osal_memcpy             0      0     46
+     mcuRestart                   0      0      0
+     uartWrite                    0      0     25
+       -> HalUARTWrite            0      0     42
+       -> HalUARTWrite            0      0     42
+
+
+   Segment part sizes:
+
+     Function/Label                     Bytes
+     --------------                     -----
+     MacToAppFlag                          1
+     AutoUpateMac                          1
+     gizwitsEventProcess                 238
+     ?Subroutine0                          5
+     mcuRestart                            3
+     gizGetTimerCount                      7
+     ?Subroutine1                          7
+     UART_IRQ_FUN                         47
+     uartWrite                           164
+     ??gizwitsEventProcess?relay           6
+     ??mcuRestart?relay                    6
+     ??gizGetTimerCount?relay              6
+     ??UART_IRQ_FUN?relay                  6
+     ??uartWrite?relay                     6
+     ?<Constant "AutoUpdate DeviceMac">   21
+     __Constant_1                          4
+     __Constant_0                          4
+     __Constant_2                          4
+
+ 
+ 471 bytes in segment BANKED_CODE
+  30 bytes in segment BANK_RELAYS
+  33 bytes in segment XDATA_ROM_C
+   2 bytes in segment XDATA_Z
+ 
+ 501 bytes of CODE  memory
+  21 bytes of CONST memory (+ 12 bytes shared)
+   2 bytes of XDATA memory
+
+Errors: none
+Warnings: 5

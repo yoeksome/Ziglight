@@ -1,0 +1,2851 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         06/Jun/2017  15:23:34 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\Source\ZigLightApp.c              #
+#    Command line       =  -f E:\work\smartlight\ZigLight001\Projects\zstack\ #
+#                          Samples\ZigLightApp\CC2530DB\..\..\..\Tools\CC2530 #
+#                          DB\f8wRouter.cfg (-DCPU32MHZ -DROOT=__near_func    #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f                   #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\Tools\CC2530DB\ #
+#                          f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0              #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFF00                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 E:\work\smartlight\ZigLight #
+#                          001\Projects\zstack\Samples\ZigLightApp\Source\Zig #
+#                          LightApp.c -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC   #
+#                          -D MT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -D          #
+#                          MT_ZDO_MGMT -lC E:\work\smartlight\ZigLight001\Pro #
+#                          jects\zstack\Samples\ZigLightApp\CC2530DB\RouterEB #
+#                          \List\ -lA E:\work\smartlight\ZigLight001\Projects #
+#                          \zstack\Samples\ZigLightApp\CC2530DB\RouterEB\List #
+#                          \ --diag_suppress Pe001,Pa010 -o                   #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\RouterEB\Obj\ -e         #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I E:\work\smartlight\ZigLight001\Projects\zstack\ #
+#                          Samples\ZigLightApp\CC2530DB\ -I                   #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\Source\ -I            #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\ZMain\TI2530DB\ #
+#                           -I E:\work\smartlight\ZigLight001\Projects\zstack #
+#                          \Samples\ZigLightApp\CC2530DB\..\..\..\..\..\Compo #
+#                          nents\hal\include\ -I E:\work\smartlight\ZigLight0 #
+#                          01\Projects\zstack\Samples\ZigLightApp\CC2530DB\.. #
+#                          \..\..\..\..\Components\hal\target\CC2530EB\ -I    #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\mac\include\ -I E:\work\smartlight\ZigLight001\P #
+#                          rojects\zstack\Samples\ZigLightApp\CC2530DB\..\..\ #
+#                          ..\..\..\Components\mac\high_level\ -I             #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\mac\low_level\srf04\ -I                          #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\mac\low_level\srf04\single_chip\ -I              #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\mt\ -I E:\work\smartlight\ZigLight001\Projects\z #
+#                          stack\Samples\ZigLightApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\osal\include\ -I                        #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\services\saddr\ -I E:\work\smartlight\ZigLight00 #
+#                          1\Projects\zstack\Samples\ZigLightApp\CC2530DB\..\ #
+#                          ..\..\..\..\Components\services\sdata\ -I          #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\stack\af\ -I E:\work\smartlight\ZigLight001\Proj #
+#                          ects\zstack\Samples\ZigLightApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\nwk\ -I                     #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\stack\sapi\ -I E:\work\smartlight\ZigLight001\Pr #
+#                          ojects\zstack\Samples\ZigLightApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\stack\sec\ -I                   #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\stack\sys\ -I E:\work\smartlight\ZigLight001\Pro #
+#                          jects\zstack\Samples\ZigLightApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\stack\zdo\ -I                    #
+#                          E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\zmac\ -I E:\work\smartlight\ZigLight001\Projects #
+#                          \zstack\Samples\ZigLightApp\CC2530DB\..\..\..\..\. #
+#                          .\Components\zmac\f8w\ -Ohz --require_prototypes   #
+#    List file          =  E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\RouterEB\List\ZigLightAp #
+#                          p.lst                                              #
+#    Object file        =  E:\work\smartlight\ZigLight001\Projects\zstack\Sam #
+#                          ples\ZigLightApp\CC2530DB\RouterEB\Obj\ZigLightApp #
+#                          .r51                                               #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+E:\work\smartlight\ZigLight001\Projects\zstack\Samples\ZigLightApp\Source\ZigLightApp.c
+      1          /**************************************************************************************************
+      2            Filename:       ZigLightApp.c
+      3            Revised:        $Date: 2009-03-18 15:56:27 -0700 (Wed, 18 Mar 2009) $
+      4            Revision:       $Revision: 19453 $
+      5          
+      6            Description:    Sample Application (no Profile).
+      7          
+      8          
+      9            Copyright 2007 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED 揂S IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41            This application isn't intended to do anything useful, it is
+     42            intended to be a simple example of an application's structure.
+     43          
+     44            This application sends it's messages either as broadcast or
+     45            broadcast filtered group messages.  The other (more normal)
+     46            message addressing is unicast.  Most of the other sample
+     47            applications are written to support the unicast message model.
+     48          
+     49            Key control:
+     50              SW1:  Sends a flash command to all devices in Group 1.
+     51              SW2:  Adds/Removes (toggles) this device in and out
+     52                    of Group 1.  This will enable and disable the
+     53                    reception of the flash command.
+     54          *********************************************************************/
+     55          /**
+     56          *   修改了串口通信调试 2017/5/24 by llw
+     57          
+     58          **/
+     59          /*********************************************************************
+     60           * INCLUDES
+     61           */
+     62          #include "OSAL.h"
+     63          #include "ZGlobals.h"
+     64          #include "AF.h"
+     65          #include "aps_groups.h"
+     66          #include "ZDApp.h"
+     67          
+     68          #include "ZigLightApp.h"
+     69          #include "ZigLightAppHw.h"
+     70          
+     71          #include "OnBoard.h"
+     72          
+     73          /* HAL */
+     74          #include "hal_lcd.h"
+     75          #include "hal_led.h"
+     76          #include "hal_key.h"
+     77          
+     78          #include  "MT_UART.h" //此处用于串口
+     79          #include  "List1.h"
+     80          #include  "gizwits_protocol.h"
+     81          #include  "ZDObject.h"
+     82          /*********************************************************************
+     83           * MACROS
+     84           */
+     85          
+     86          /*********************************************************************
+     87           * CONSTANTS
+     88           */
+     89          
+     90          /*********************************************************************
+     91           * TYPEDEFS
+     92           */
+     93          
+     94          /*********************************************************************
+     95           * GLOBAL VARIABLES
+     96           */
+     97          
+     98          // This list should be filled with Application specific Cluster IDs.
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     99          const cId_t ZigLightApp_ClusterList[ZigLightApp_MAX_CLUSTERS] =
+   \                     ZigLightApp_ClusterList:
+   \   000000   0100         DW 1
+   \   000002   0200         DW 2
+   \   000004   0000         DW 0
+    100          {
+    101            ZigLightApp_PERIODIC_CLUSTERID,
+    102            ZigLightApp_FLASH_CLUSTERID
+    103          };
+    104          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    105          const SimpleDescriptionFormat_t ZigLightApp_SimpleDesc =
+   \                     ZigLightApp_SimpleDesc:
+   \   000000   14           DB 20
+   \   000001   080F         DW 3848
+   \   000003   0100         DW 1
+   \   000005   00           DB 0
+   \   000006   03           DB 3
+   \   000007   ....         DW ZigLightApp_ClusterList
+   \   000009   03           DB 3
+   \   00000A   ....         DW ZigLightApp_ClusterList
+    106          {
+    107            ZigLightApp_ENDPOINT,              //  int Endpoint;
+    108            ZigLightApp_PROFID,                //  uint16 AppProfId[2];
+    109            ZigLightApp_DEVICEID,              //  uint16 AppDeviceId[2];
+    110            ZigLightApp_DEVICE_VERSION,        //  int   AppDevVer:4;
+    111            ZigLightApp_FLAGS,                 //  int   AppFlags:4;
+    112            ZigLightApp_MAX_CLUSTERS,          //  uint8  AppNumInClusters;
+    113            (cId_t *)ZigLightApp_ClusterList,  //  uint8 *pAppInClusterList;
+    114            ZigLightApp_MAX_CLUSTERS,          //  uint8  AppNumInClusters;
+    115            (cId_t *)ZigLightApp_ClusterList   //  uint8 *pAppInClusterList;
+    116          };
+    117          
+    118          // This is the Endpoint/Interface description.  It is defined here, but
+    119          // filled-in in ZigLightApp_Init().  Another way to go would be to fill
+    120          // in the structure here and make it a "const" (in code space).  The
+    121          // way it's defined in this sample app it is define in RAM.
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    122          endPointDesc_t ZigLightApp_epDesc;
+   \                     ZigLightApp_epDesc:
+   \   000000                DS 6
+   \   000006                REQUIRE __INIT_XDATA_Z
+    123          
+    124          /*********************************************************************
+    125           * EXTERNAL VARIABLES
+    126           */
+    127          
+    128          /*********************************************************************
+    129           * EXTERNAL FUNCTIONS
+    130           */
+    131          
+    132          /*********************************************************************
+    133           * LOCAL VARIABLES
+    134           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    135          uint8 ZigLightApp_TaskID;   // Task ID for internal task/event processing
+   \                     ZigLightApp_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    136                                    // This variable will be received when
+    137                                    // ZigLightApp_Init() is called.
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    138          devStates_t ZigLightApp_NwkState;
+   \                     ZigLightApp_NwkState:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    139          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    140          uint8 ZigLightApp_TransID;  // This is the unique message ID (counter)
+   \                     ZigLightApp_TransID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    141          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    142          afAddrType_t ZigLightApp_Periodic_DstAddr;
+   \                     ZigLightApp_Periodic_DstAddr:
+   \   000000                DS 12
+   \   00000C                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    143          afAddrType_t ZigLightApp_Flash_DstAddr;
+   \                     ZigLightApp_Flash_DstAddr:
+   \   000000                DS 12
+   \   00000C                REQUIRE __INIT_XDATA_Z
+    144          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    145          afAddrType_t Point_To_Point_DstAddr;//网蜂点对点通信定义
+   \                     Point_To_Point_DstAddr:
+   \   000000                DS 12
+   \   00000C                REQUIRE __INIT_XDATA_Z
+    146          /****************by liu ***********************/
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    147          afAddrType_t Self_DstAddr;//by liu
+   \                     Self_DstAddr:
+   \   000000                DS 12
+   \   00000C                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    148          zAddrType_t Self_zDstAddr;//by liu
+   \                     Self_zDstAddr:
+   \   000000                DS 9
+   \   000009                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    149          uint8 self_index=1;//by liu
+   \                     self_index:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for self_index>`
+   \   000001                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    150          uint8 sbuf[6];//by liu
+   \                     sbuf:
+   \   000000                DS 6
+   \   000006                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    151          uint8 sbuf_len;//by liu
+   \                     sbuf_len:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    152          uint8 on_off;//by liu
+   \                     on_off:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    153          uint8 white,red,green,blue;//by liu
+   \                     white:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     red:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     green:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     blue:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    154          uint8 gizwits_buf[20];
+   \                     gizwits_buf:
+   \   000000                DS 20
+   \   000014                REQUIRE __INIT_XDATA_Z
+    155          enum mstate{
+    156            POWER_ON=0X10,
+    157            ESTABLISH_CONNECTION_REQ,//router & end send
+    158            ESTABLISH_CONNECTION_RSQ,//coordinate send
+    159            HEARTBEAT,//router & end send
+    160            DEVICE_STATUS_CHANGE,//router & end send
+    161            DEVICE_COMMAND//coordinate send
+    162            
+    163            };//by liu
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    164          uint8 main_state = ESTABLISH_CONNECTION_REQ;//by liu
+   \                     main_state:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for main_state>`
+   \   000001                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    165          Node *nodelist;
+   \                     nodelist:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    166          Node *deletnodelist=NULL;
+   \                     deletnodelist:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    167          uint8 newdevice_joinin=0;//新設備加入標誌 =0無效 =1加入成功 = 2內存分配出錯
+   \                     newdevice_joinin:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    168          #define SERIAL_INCOMING_MSG                  0xE1
+    169          //typedef struct
+    170          //{
+    171          //  osal_event_hdr_t  hdr;
+    172          //  uint8             *msg;
+    173          //} mtOSALSerialData_t;
+    174          extern uint8 currentMac[8];
+    175          extern uint8 MacToAppFlag ;//by liu
+    176          extern uint8 AutoUpateMac ;//by liu
+    177          dataPoint_t currentDataPoint;// by liu
+    178          /****************by liu end***********************/
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    179          aps_Group_t ZigLightApp_Group;
+   \                     ZigLightApp_Group:
+   \   000000                DS 18
+   \   000012                REQUIRE __INIT_XDATA_Z
+    180          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    181          uint8 ZigLightAppPeriodicCounter = 0;
+   \                     ZigLightAppPeriodicCounter:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    182          uint8 ZigLightAppFlashCounter = 0;
+   \                     ZigLightAppFlashCounter:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    183          dataPoint_t currentDataPoint;
+   \                     currentDataPoint:
+   \   000000                DS 20
+   \   000014                REQUIRE __INIT_XDATA_Z
+    184          /*********************************************************************
+    185           * LOCAL FUNCTIONS
+    186           */
+    187          void ZigLightApp_HandleKeys( uint8 shift, uint8 keys );
+    188          void ZigLightApp_MessageMSGCB( afIncomingMSGPacket_t *pckt );
+    189          void ZigLightApp_SendPeriodicMessage( void );
+    190          void ZigLightApp_SendFlashMessage( uint16 flashTime );
+    191          void ZigLightApp_SendPointToPointMessage( afAddrType_t * dstaddr , endPointDesc_t * epdesc , uint16 len , uint8 * buf  );
+    192          uint8 SendData_load(uint8 *sbuf);//by liu
+    193          void rfdata_handle( afIncomingMSGPacket_t *pkt );//by liu
+    194          void serial_data_handle(uint8 *ptr);//by liu
+    195          void ZigLightApp_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg );//by liu
+    196          /*********************************************************************
+    197           * NETWORK LAYER CALLBACKS
+    198           */
+    199          
+    200          /*********************************************************************
+    201           * PUBLIC FUNCTIONS
+    202           */
+    203          
+    204          /*********************************************************************
+    205           * @fn      ZigLightApp_Init
+    206           *
+    207           * @brief   Initialization function for the Generic App Task.
+    208           *          This is called during initialization and should contain
+    209           *          any application specific initialization (ie. hardware
+    210           *          initialization/setup, table initialization, power up
+    211           *          notificaiton ... ).
+    212           *
+    213           * @param   task_id - the ID assigned by OSAL.  This ID should be
+    214           *                    used to send messages and set timers.
+    215           *
+    216           * @return  none
+    217           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    218          void ZigLightApp_Init( uint8 task_id )
+   \                     ZigLightApp_Init:
+    219          {
+   \   000000   74F5         MOV     A,#-0xb
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 11
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+    220          //  uint8 i;
+    221            ZigLightApp_TaskID = task_id;
+   \   000007   90....       MOV     DPTR,#ZigLightApp_TaskID
+   \   00000A   F0           MOVX    @DPTR,A
+    222            ZigLightApp_NwkState = DEV_INIT;
+   \   00000B   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   00000E   7401         MOV     A,#0x1
+   \   000010   F0           MOVX    @DPTR,A
+    223            ZigLightApp_TransID = 0;
+   \   000011   90....       MOV     DPTR,#ZigLightApp_TransID
+   \   000014   E4           CLR     A
+   \   000015   F0           MOVX    @DPTR,A
+    224            
+    225            MT_UartInit();//串口初始化
+   \   000016                ; Setup parameters for call to function MT_UartInit
+   \   000016   12....       LCALL   ??MT_UartInit?relay
+    226            MT_UartRegisterTaskID(task_id);//登记任务号
+   \   000019                ; Setup parameters for call to function MT_UartRegisterTaskID
+   \   000019   EE           MOV     A,R6
+   \   00001A   F9           MOV     R1,A
+   \   00001B   12....       LCALL   ??MT_UartRegisterTaskID?relay
+    227            HalUARTWrite(0,"giziwit set mode\n",17); //（串口0，'字符'，字符个数。）
+   \   00001E                ; Setup parameters for call to function HalUARTWrite
+   \   00001E   7C11         MOV     R4,#0x11
+   \   000020   7D00         MOV     R5,#0x0
+   \   000022   7A..         MOV     R2,#`?<Constant "giziwit set mode\\n">` & 0xff
+   \   000024   7B..         MOV     R3,#(`?<Constant "giziwit set mode\\n">` >> 8) & 0xff
+   \   000026   7900         MOV     R1,#0x0
+   \   000028   12....       LCALL   ??HalUARTWrite?relay
+    228            osal_memset((uint8*)&currentDataPoint, 0, sizeof(dataPoint_t));
+   \   00002B                ; Setup parameters for call to function osal_memset
+   \   00002B   7C14         MOV     R4,#0x14
+   \   00002D   7D00         MOV     R5,#0x0
+   \   00002F   7900         MOV     R1,#0x0
+   \   000031   7A..         MOV     R2,#currentDataPoint & 0xff
+   \   000033   7B..         MOV     R3,#(currentDataPoint >> 8) & 0xff
+   \   000035   12....       LCALL   ??osal_memset?relay
+    229            gizwitsInit();
+   \   000038                ; Setup parameters for call to function gizwitsInit
+   \   000038   12....       LCALL   ??gizwitsInit?relay
+    230          //  gizwitsSetMode(WIFI_AIRLINK_MODE);//airlink
+    231            // Device hardware initialization can be added here or in main() (Zmain.c).
+    232            // If the hardware is application specific - add it here.
+    233            // If the hardware is other parts of the device add it in main().
+    234          
+    235           #if defined ( BUILD_ALL_DEVICES )
+    236            // The "Demo" target is setup to have BUILD_ALL_DEVICES and HOLD_AUTO_START
+    237            // We are looking at a jumper (defined in ZigLightAppHw.c) to be jumpered
+    238            // together - if they are - we will start up a coordinator. Otherwise,
+    239            // the device will start as a router.
+    240            if ( readCoordinatorJumper() )
+    241              zgDeviceLogicalType = ZG_DEVICETYPE_COORDINATOR;
+    242            else
+    243              zgDeviceLogicalType = ZG_DEVICETYPE_ROUTER;
+    244          #endif // BUILD_ALL_DEVICES
+    245          
+    246          #if defined ( HOLD_AUTO_START )
+    247            // HOLD_AUTO_START is a compile option that will surpress ZDApp
+    248            //  from starting the device and wait for the application to
+    249            //  start the device.
+    250            ZDOInitDevice(0);
+    251          #endif
+    252          
+    253            // Setup for the periodic message's destination address
+    254            // Broadcast to everyone
+    255            ZigLightApp_Periodic_DstAddr.addrMode = (afAddrMode_t)AddrBroadcast;
+   \   00003B   90....       MOV     DPTR,#ZigLightApp_Periodic_DstAddr + 8
+   \   00003E   740F         MOV     A,#0xf
+   \   000040   F0           MOVX    @DPTR,A
+    256            ZigLightApp_Periodic_DstAddr.endPoint = ZigLightApp_ENDPOINT;
+   \   000041   A3           INC     DPTR
+   \   000042   7414         MOV     A,#0x14
+   \   000044   F0           MOVX    @DPTR,A
+    257            ZigLightApp_Periodic_DstAddr.addr.shortAddr = 0xFFFF;
+   \   000045   90....       MOV     DPTR,#ZigLightApp_Periodic_DstAddr
+   \   000048   74FF         MOV     A,#-0x1
+   \   00004A   F0           MOVX    @DPTR,A
+   \   00004B   A3           INC     DPTR
+   \   00004C   F0           MOVX    @DPTR,A
+    258          
+    259            // Setup for the flash command's destination address - Group 1
+    260            ZigLightApp_Flash_DstAddr.addrMode = (afAddrMode_t)afAddrGroup;
+   \   00004D   90....       MOV     DPTR,#ZigLightApp_Flash_DstAddr + 8
+   \   000050   7401         MOV     A,#0x1
+   \   000052   F0           MOVX    @DPTR,A
+    261            ZigLightApp_Flash_DstAddr.endPoint = ZigLightApp_ENDPOINT;
+   \   000053   A3           INC     DPTR
+   \   000054   7414         MOV     A,#0x14
+   \   000056   F0           MOVX    @DPTR,A
+    262            ZigLightApp_Flash_DstAddr.addr.shortAddr = ZigLightApp_FLASH_GROUP;
+   \   000057   90....       MOV     DPTR,#ZigLightApp_Flash_DstAddr
+   \   00005A   7401         MOV     A,#0x1
+   \   00005C   F0           MOVX    @DPTR,A
+   \   00005D   A3           INC     DPTR
+   \   00005E   E4           CLR     A
+   \   00005F   F0           MOVX    @DPTR,A
+    263            
+    264            // 网蜂点对点通讯定义
+    265              Point_To_Point_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;//点播
+   \   000060   90....       MOV     DPTR,#Point_To_Point_DstAddr + 8
+   \   000063   7402         MOV     A,#0x2
+   \   000065   F0           MOVX    @DPTR,A
+    266              Point_To_Point_DstAddr.endPoint = ZigLightApp_ENDPOINT;
+   \   000066   A3           INC     DPTR
+   \   000067   7414         MOV     A,#0x14
+   \   000069   F0           MOVX    @DPTR,A
+    267              Point_To_Point_DstAddr.addr.shortAddr = 0x0000; //发给协调器
+   \   00006A   90....       MOV     DPTR,#Point_To_Point_DstAddr
+   \   00006D   E4           CLR     A
+   \   00006E   F0           MOVX    @DPTR,A
+   \   00006F   A3           INC     DPTR
+   \   000070   F0           MOVX    @DPTR,A
+    268          //    for(i=0;i<8;i++)
+    269          //      Point_To_Point_DstAddr.addr.extAddr[i] = 0x00; //发给协调器
+    270          //    //test by liu 
+    271          //    
+    272          //    Self_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;//点播
+    273          //    Self_DstAddr.endPoint = ZigLightApp_ENDPOINT;
+    274          //    Self_DstAddr.addr.shortAddr = 0x0000; //发给协调器
+    275          //    
+    276          //    Self_zDstAddr.addrMode = (afAddrMode_t)Addr16Bit;//点播
+    277          //    Self_zDstAddr.addr.shortAddr = 0x0000; //发给协调器
+    278          //    //end test
+    279            /****************************by liu *****************************/
+    280            initList(&nodelist);
+   \   000071                ; Setup parameters for call to function initList
+   \   000071   7A..         MOV     R2,#nodelist & 0xff
+   \   000073   7B..         MOV     R3,#(nodelist >> 8) & 0xff
+   \   000075   12....       LCALL   ??initList?relay
+    281          //  insertLastList(&nodelist,"12345678");
+    282          //  insertLastList(&nodelist,"22045671");
+    283            
+    284            // Register callback evetns from the ZDApp
+    285            ZDO_RegisterForZDOMsg( ZigLightApp_TaskID, IEEE_addr_rsp );
+   \   000078                ; Setup parameters for call to function ZDO_RegisterForZDOMsg
+   \   000078   7A01         MOV     R2,#0x1
+   \   00007A   7B80         MOV     R3,#-0x80
+   \   00007C   90....       MOV     DPTR,#ZigLightApp_TaskID
+   \   00007F   E0           MOVX    A,@DPTR
+   \   000080   F9           MOV     R1,A
+   \   000081   12....       LCALL   ??ZDO_RegisterForZDOMsg?relay
+    286            /***************************by liu end ***************************/
+    287            // Fill out the endpoint description.
+    288            ZigLightApp_epDesc.endPoint = ZigLightApp_ENDPOINT;
+   \   000084   90....       MOV     DPTR,#ZigLightApp_epDesc
+   \   000087   7414         MOV     A,#0x14
+   \   000089   F0           MOVX    @DPTR,A
+    289            ZigLightApp_epDesc.task_id = &ZigLightApp_TaskID;
+   \   00008A   A3           INC     DPTR
+   \   00008B   74..         MOV     A,#ZigLightApp_TaskID & 0xff
+   \   00008D   F0           MOVX    @DPTR,A
+   \   00008E   A3           INC     DPTR
+   \   00008F   74..         MOV     A,#(ZigLightApp_TaskID >> 8) & 0xff
+   \   000091   F0           MOVX    @DPTR,A
+    290            ZigLightApp_epDesc.simpleDesc
+    291                      = (SimpleDescriptionFormat_t *)&ZigLightApp_SimpleDesc;
+   \   000092   A3           INC     DPTR
+   \   000093   74..         MOV     A,#ZigLightApp_SimpleDesc & 0xff
+   \   000095   F0           MOVX    @DPTR,A
+   \   000096   A3           INC     DPTR
+   \   000097   74..         MOV     A,#(ZigLightApp_SimpleDesc >> 8) & 0xff
+   \   000099   F0           MOVX    @DPTR,A
+    292            ZigLightApp_epDesc.latencyReq = noLatencyReqs;
+   \   00009A   A3           INC     DPTR
+   \   00009B   E4           CLR     A
+   \   00009C   F0           MOVX    @DPTR,A
+    293          
+    294            // Register the endpoint description with the AF
+    295            afRegister( &ZigLightApp_epDesc );
+   \   00009D                ; Setup parameters for call to function afRegister
+   \   00009D   7A..         MOV     R2,#ZigLightApp_epDesc & 0xff
+   \   00009F   7B..         MOV     R3,#(ZigLightApp_epDesc >> 8) & 0xff
+   \   0000A1   12....       LCALL   ??afRegister?relay
+    296          
+    297            // Register for all key events - This app will handle all key events
+    298          //  RegisterForKeys( ZigLightApp_TaskID );//by liu
+    299          
+    300            // By default, all devices start out in Group 1
+    301            ZigLightApp_Group.ID = 0x0001;
+   \   0000A4   90....       MOV     DPTR,#ZigLightApp_Group
+   \   0000A7   7401         MOV     A,#0x1
+   \   0000A9   F0           MOVX    @DPTR,A
+   \   0000AA   A3           INC     DPTR
+   \   0000AB   E4           CLR     A
+   \   0000AC   F0           MOVX    @DPTR,A
+    302            osal_memcpy( ZigLightApp_Group.name, "Group 1", 7  );
+   \   0000AD                ; Setup parameters for call to function osal_memcpy
+   \   0000AD   75....       MOV     ?V0 + 0,#`?<Constant "Group 1">` & 0xff
+   \   0000B0   75....       MOV     ?V0 + 1,#(`?<Constant "Group 1">` >> 8) & 0xff
+   \   0000B3   F5..         MOV     ?V0 + 2,A
+   \   0000B5   78..         MOV     R0,#?V0 + 0
+   \   0000B7   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   0000BA   7C07         MOV     R4,#0x7
+   \   0000BC   7D00         MOV     R5,#0x0
+   \   0000BE   7A..         MOV     R2,#(ZigLightApp_Group + 2) & 0xff
+   \   0000C0   7B..         MOV     R3,#((ZigLightApp_Group + 2) >> 8) & 0xff
+   \   0000C2   12....       LCALL   ??osal_memcpy?relay
+   \   0000C5   7403         MOV     A,#0x3
+   \   0000C7   12....       LCALL   ?DEALLOC_XSTACK8
+    303            aps_AddGroup( ZigLightApp_ENDPOINT, &ZigLightApp_Group );
+   \   0000CA                ; Setup parameters for call to function aps_AddGroup
+   \   0000CA   7A..         MOV     R2,#ZigLightApp_Group & 0xff
+   \   0000CC   7B..         MOV     R3,#(ZigLightApp_Group >> 8) & 0xff
+   \   0000CE   7914         MOV     R1,#0x14
+   \   0000D0   12....       LCALL   ??aps_AddGroup?relay
+    304          
+    305          #if defined ( LCD_SUPPORTED )
+    306            HalLcdWriteString( "ZigLightApp", HAL_LCD_LINE_1 );
+    307          #endif
+    308          }
+   \   0000D3   7F03         MOV     R7,#0x3
+   \   0000D5   02....       LJMP    ?BANKED_LEAVE_XDATA
+    309          /***********************************add by liu*****************************************/
+    310          /*****
+    311          ZigLightApp_NwkState
+    312          SendData_load 参数 ptr 缓存数组
+    313          返回：数组有效字节数
+    314          ****/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    315          uint8 SendData_load(uint8 *sbuf)
+   \                     SendData_load:
+    316          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    317            uint8 i;
+    318          //  uint8 coordextaddr[8];
+    319            switch(main_state){
+   \   000004   90....       MOV     DPTR,#main_state
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   24EF         ADD     A,#-0x11
+   \   00000A   6015         JZ      ??SendData_load_0
+   \   00000C   14           DEC     A
+   \   00000D   6059         JZ      ??SendData_load_1
+   \   00000F   14           DEC     A
+   \   000010   6072         JZ      ??SendData_load_2
+   \   000012   14           DEC     A
+   \   000013   7003         JNZ     $+5
+   \   000015   02....       LJMP    ??SendData_load_3 & 0xFFFF
+   \   000018   14           DEC     A
+   \   000019   7003         JNZ     $+5
+   \   00001B   02....       LJMP    ??SendData_load_4 & 0xFFFF
+   \   00001E   02....       LJMP    ??SendData_load_5 & 0xFFFF
+    320            case ESTABLISH_CONNECTION_REQ:
+    321              {
+    322                if(ZigLightApp_NwkState != DEV_ZB_COORD){
+   \                     ??SendData_load_0:
+   \   000021   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   000024   E0           MOVX    A,@DPTR
+   \   000025   6409         XRL     A,#0x9
+   \   000027   602E         JZ      ??SendData_load_6
+    323                  sbuf[0] = 0x00;
+   \   000029   8A82         MOV     DPL,R2
+   \   00002B   8B83         MOV     DPH,R3
+   \   00002D   E4           CLR     A
+   \   00002E   F0           MOVX    @DPTR,A
+    324                  if(ZigLightApp_NwkState == DEV_ROUTER)
+   \   00002F   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   000032   E0           MOVX    A,@DPTR
+   \   000033   6407         XRL     A,#0x7
+   \   000035   7009         JNZ     ??SendData_load_7
+    325                    sbuf[1] = 0x01;
+   \   000037   8A82         MOV     DPL,R2
+   \   000039   8B83         MOV     DPH,R3
+   \   00003B   A3           INC     DPTR
+   \   00003C   7401         MOV     A,#0x1
+   \   00003E   800C         SJMP    ??SendData_load_8
+    326                  else if(ZigLightApp_NwkState == DEV_END_DEVICE)
+   \                     ??SendData_load_7:
+   \   000040   E0           MOVX    A,@DPTR
+   \   000041   6406         XRL     A,#0x6
+   \   000043   7008         JNZ     ??SendData_load_9
+    327                    sbuf[1] = 0x02;
+   \   000045   8A82         MOV     DPL,R2
+   \   000047   8B83         MOV     DPH,R3
+   \   000049   A3           INC     DPTR
+   \   00004A   7402         MOV     A,#0x2
+   \                     ??SendData_load_8:
+   \   00004C   F0           MOVX    @DPTR,A
+    328                  #ifdef GUOHUA_LIGHT
+    329                  sbuf[1] |= GUOHUA_LIGHT;
+   \                     ??SendData_load_9:
+   \   00004D   8A82         MOV     DPL,R2
+   \   00004F   8B83         MOV     DPH,R3
+   \   000051   A3           INC     DPTR
+   \   000052   E0           MOVX    A,@DPTR
+   \   000053   D2E2         SETB    0xE0 /* A   */.2
+   \   000055   8008         SJMP    ??SendData_load_10
+    330                  #endif
+    331                  #ifdef GUOHUA_PLUG
+    332                  sbuf[1] |= GUOHUA_PLUG;
+    333                  #endif
+    334                  #ifdef GUOHUA_POWERSTRIP
+    335                  sbuf[1] |= GUOHUA_POWERSTRIP;
+    336                  #endif
+    337                }
+    338                else{
+    339                  sbuf[0] = 0xff;
+   \                     ??SendData_load_6:
+   \   000057   8A82         MOV     DPL,R2
+   \   000059   8B83         MOV     DPH,R3
+   \   00005B   74FF         MOV     A,#-0x1
+   \   00005D   F0           MOVX    @DPTR,A
+    340                  sbuf[1] = 0xff;
+   \   00005E   A3           INC     DPTR
+   \                     ??SendData_load_10:
+   \   00005F   F0           MOVX    @DPTR,A
+    341                }
+    342                sbuf_len = 2;
+   \   000060   90....       MOV     DPTR,#sbuf_len
+   \   000063   7402         MOV     A,#0x2
+   \   000065   02....       LJMP    ??SendData_load_11 & 0xFFFF
+    343          //      NLME_GetCoordExtAddr( coordextaddr );
+    344          //      for(i=0;i<8;i++)
+    345          //        Point_To_Point_DstAddr.addr.extAddr[i] = coordextaddr[i]; //发给协调器
+    346                break;
+    347              }
+    348            case ESTABLISH_CONNECTION_RSQ:
+    349              {
+    350                if(ZigLightApp_NwkState == DEV_ZB_COORD){
+   \                     ??SendData_load_1:
+   \   000068   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   00006B   E0           MOVX    A,@DPTR
+   \   00006C   6409         XRL     A,#0x9
+   \   00006E   70E7         JNZ     ??SendData_load_6
+    351                  sbuf[0] = 0x01;
+   \   000070   8A82         MOV     DPL,R2
+   \   000072   8B83         MOV     DPH,R3
+   \   000074   7401         MOV     A,#0x1
+   \   000076   F0           MOVX    @DPTR,A
+    352                  sbuf[1] = newdevice_joinin; // 根据链表空间大小处理 
+   \   000077   90....       MOV     DPTR,#newdevice_joinin
+   \   00007A   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_23:
+   \   00007D   F0           MOVX    @DPTR,A
+    353                  newdevice_joinin = 0;
+   \   00007E   90....       MOV     DPTR,#newdevice_joinin
+   \   000081   E4           CLR     A
+   \   000082   80DB         SJMP    ??SendData_load_10
+    354                }
+    355                else{
+    356                  sbuf[0] = 0xff;
+    357                  sbuf[1] = 0xff;
+    358                }
+    359                sbuf_len = 2;
+    360                break;
+    361              }
+    362            case HEARTBEAT:
+    363              {
+    364                if(ZigLightApp_NwkState != DEV_ZB_COORD){
+   \                     ??SendData_load_2:
+   \   000084   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   000087   E0           MOVX    A,@DPTR
+   \   000088   6409         XRL     A,#0x9
+   \   00008A   8A82         MOV     DPL,R2
+   \   00008C   8B83         MOV     DPH,R3
+   \   00008E   6004         JZ      ??SendData_load_12
+    365                  sbuf[0] = 0x02;
+   \   000090   7402         MOV     A,#0x2
+   \   000092   8002         SJMP    ??SendData_load_13
+    366                }
+    367                else
+    368                  sbuf[0] = 0xff;
+   \                     ??SendData_load_12:
+   \   000094   74FF         MOV     A,#-0x1
+   \                     ??SendData_load_13:
+   \   000096   F0           MOVX    @DPTR,A
+    369                sbuf_len = 1;
+   \   000097   90....       MOV     DPTR,#sbuf_len
+   \   00009A   7401         MOV     A,#0x1
+   \   00009C   807F         SJMP    ??SendData_load_11
+    370                break;
+    371              }
+    372            case DEVICE_STATUS_CHANGE:
+    373              {
+    374                if(ZigLightApp_NwkState != DEV_ZB_COORD){
+   \                     ??SendData_load_3:
+   \   00009E   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   0000A1   E0           MOVX    A,@DPTR
+   \   0000A2   6409         XRL     A,#0x9
+   \   0000A4   8A82         MOV     DPL,R2
+   \   0000A6   8B83         MOV     DPH,R3
+   \   0000A8   6027         JZ      ??SendData_load_14
+    375                  sbuf[0] = 0x04;
+   \   0000AA   7404         MOV     A,#0x4
+   \   0000AC   F0           MOVX    @DPTR,A
+    376                  sbuf[1] = on_off;
+   \   0000AD   90....       MOV     DPTR,#on_off
+   \   0000B0   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_24:
+   \   0000B3   F0           MOVX    @DPTR,A
+    377                  sbuf[2] = white;
+   \   0000B4   90....       MOV     DPTR,#white
+   \   0000B7   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_25:
+   \   0000BA   A3           INC     DPTR
+   \   0000BB   F0           MOVX    @DPTR,A
+    378                  sbuf[3] = red;
+   \   0000BC   90....       MOV     DPTR,#red
+   \   0000BF   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   0000C2   F0           MOVX    @DPTR,A
+    379                  sbuf[4] = green;
+   \   0000C3   90....       MOV     DPTR,#green
+   \   0000C6   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_22:
+   \   0000C9   A3           INC     DPTR
+   \   0000CA   F0           MOVX    @DPTR,A
+    380                  sbuf[5] = blue;
+   \   0000CB   90....       MOV     DPTR,#blue
+   \   0000CE   E0           MOVX    A,@DPTR
+   \   0000CF   8013         SJMP    ??SendData_load_15
+    381                }
+    382                else{
+    383                  sbuf[0] = 0xff;
+   \                     ??SendData_load_14:
+   \   0000D1   74FF         MOV     A,#-0x1
+   \   0000D3   F0           MOVX    @DPTR,A
+    384                  sbuf[1] = 0xff;
+   \   0000D4   A3           INC     DPTR
+   \   0000D5   F0           MOVX    @DPTR,A
+    385                  sbuf[2] = 0xff;
+   \   0000D6   8A82         MOV     DPL,R2
+   \   0000D8   8B83         MOV     DPH,R3
+   \   0000DA   A3           INC     DPTR
+   \   0000DB   A3           INC     DPTR
+   \   0000DC   12....       LCALL   ?Subroutine7 & 0xFFFF
+    386                  sbuf[3] = 0xff;
+   \                     ??CrossCallReturnLabel_10:
+   \   0000DF   12....       LCALL   ?Subroutine7 & 0xFFFF
+    387                  sbuf[4] = 0xff;
+   \                     ??CrossCallReturnLabel_11:
+   \   0000E2   A3           INC     DPTR
+   \   0000E3   F0           MOVX    @DPTR,A
+    388                  sbuf[5] = 0xff;
+   \                     ??SendData_load_15:
+   \   0000E4   8A82         MOV     DPL,R2
+   \   0000E6   8B83         MOV     DPH,R3
+   \   0000E8   A3           INC     DPTR
+   \   0000E9   A3           INC     DPTR
+   \   0000EA   A3           INC     DPTR
+   \   0000EB   A3           INC     DPTR
+   \   0000EC   A3           INC     DPTR
+   \   0000ED   F0           MOVX    @DPTR,A
+    389                }
+    390                sbuf_len = 6;
+   \                     ??SendData_load_16:
+   \   0000EE   90....       MOV     DPTR,#sbuf_len
+   \   0000F1   7406         MOV     A,#0x6
+   \   0000F3   8028         SJMP    ??SendData_load_11
+    391                break;
+    392              }
+    393            case DEVICE_COMMAND://未完成 ！！！！！！！！！！！！！！！
+    394              {
+    395                sbuf[0] = 0x05;
+   \                     ??SendData_load_4:
+   \   0000F5   8A82         MOV     DPL,R2
+   \   0000F7   8B83         MOV     DPH,R3
+   \   0000F9   7405         MOV     A,#0x5
+   \   0000FB   F0           MOVX    @DPTR,A
+    396                for(i=1;i<6;i++)
+   \   0000FC   7C01         MOV     R4,#0x1
+    397                  sbuf[i] = gizwits_buf[i];
+   \                     ??SendData_load_17:
+   \   0000FE   8C82         MOV     DPL,R4
+   \   000100   A882         MOV     R0,DPL
+   \   000102   12....       LCALL   ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_34:
+   \   000105   E0           MOVX    A,@DPTR
+   \   000106   C0E0         PUSH    A
+   \   000108   EA           MOV     A,R2
+   \   000109   28           ADD     A,R0
+   \   00010A   12....       LCALL   ?Subroutine24 & 0xFFFF
+   \                     ??CrossCallReturnLabel_58:
+   \   00010D   D0E0         POP     A
+   \   00010F   F0           MOVX    @DPTR,A
+   \   000110   0C           INC     R4
+   \   000111   EC           MOV     A,R4
+   \   000112   C3           CLR     C
+   \   000113   9406         SUBB    A,#0x6
+   \   000115   50D7         JNC     ??SendData_load_16
+   \   000117   80E5         SJMP    ??SendData_load_17
+    398                sbuf_len = 6;
+    399                break;
+    400              }
+    401            default:
+    402              sbuf_len = 0;
+   \                     ??SendData_load_5:
+   \   000119   90....       MOV     DPTR,#sbuf_len
+   \   00011C   E4           CLR     A
+   \                     ??SendData_load_11:
+   \   00011D   F0           MOVX    @DPTR,A
+    403            }
+    404            return sbuf_len;
+   \   00011E   E0           MOVX    A,@DPTR
+   \   00011F   F9           MOV     R1,A
+   \   000120   D083         POP     DPH
+   \   000122   D082         POP     DPL
+   \   000124   02....       LJMP    ?BRET
+    405          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   8A82         MOV     DPL,R2
+   \   000003   8B83         MOV     DPH,R3
+   \   000005   A3           INC     DPTR
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   8A82         MOV     DPL,R2
+   \   000003   8B83         MOV     DPH,R3
+   \   000005   A3           INC     DPTR
+   \   000006   A3           INC     DPTR
+   \   000007   A3           INC     DPTR
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   8A82         MOV     DPL,R2
+   \   000003   8B83         MOV     DPH,R3
+   \   000005   A3           INC     DPTR
+   \   000006   A3           INC     DPTR
+   \   000007   A3           INC     DPTR
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine17:
+   \   000000   74..         MOV     A,#gizwits_buf & 0xff
+   \   000002   28           ADD     A,R0
+   \   000003   F582         MOV     DPL,A
+   \   000005   74..         MOV     A,#(gizwits_buf >> 8) & 0xff
+   \   000007   12....       LCALL   ??Subroutine27_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_56:
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine24:
+   \   000000   F582         MOV     DPL,A
+   \   000002   EB           MOV     A,R3
+   \   000003                REQUIRE ??Subroutine27_0
+   \   000003                ; // Fall through to label ??Subroutine27_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine27_0:
+   \   000000   3400         ADDC    A,#0x0
+   \   000002   F583         MOV     DPH,A
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    406          void serial_data_handle(uint8 *ptr)
+   \                     serial_data_handle:
+    407          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV     A,#-0x2
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EA           MOV     A,R2
+   \   00000B   FE           MOV     R6,A
+   \   00000C   EB           MOV     A,R3
+   \   00000D   FF           MOV     R7,A
+    408            uint8 i;
+    409            uint8 res;
+    410            uint8 *serialMac;
+    411            uint16 shortaddr;
+    412            serialMac = &ptr[0];
+    413            if(ZigLightApp_NwkState == DEV_ZB_COORD){
+   \   00000E   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   000011   E0           MOVX    A,@DPTR
+   \   000012   6409         XRL     A,#0x9
+   \   000014   6003         JZ      $+5
+   \   000016   02....       LJMP    ??serial_data_handle_0 & 0xFFFF
+    414              if(ptr[8] != 0x05){//cmdtype
+   \   000019   8E82         MOV     DPL,R6
+   \   00001B   8F83         MOV     DPH,R7
+   \   00001D   A3           INC     DPTR
+   \   00001E   A3           INC     DPTR
+   \   00001F   A3           INC     DPTR
+   \   000020   A3           INC     DPTR
+   \   000021   A3           INC     DPTR
+   \   000022   A3           INC     DPTR
+   \   000023   A3           INC     DPTR
+   \   000024   A3           INC     DPTR
+   \   000025   E0           MOVX    A,@DPTR
+   \   000026   6405         XRL     A,#0x5
+   \   000028   600F         JZ      ??serial_data_handle_1
+    415                HalUARTWrite(0,"error cmd type\r",15);
+   \   00002A                ; Setup parameters for call to function HalUARTWrite
+   \   00002A   7C0F         MOV     R4,#0xf
+   \   00002C   7D00         MOV     R5,#0x0
+   \   00002E   7A..         MOV     R2,#`?<Constant "error cmd type\\r">` & 0xff
+   \   000030   7B..         MOV     R3,#(`?<Constant "error cmd type\\r">` >> 8) & 0xff
+   \                     ??serial_data_handle_2:
+   \   000032   7900         MOV     R1,#0x0
+   \   000034   12....       LCALL   ??HalUARTWrite?relay
+    416                return;
+   \   000037   806B         SJMP    ??serial_data_handle_0
+    417              }
+    418              main_state = DEVICE_COMMAND;
+   \                     ??serial_data_handle_1:
+   \   000039   90....       MOV     DPTR,#main_state
+   \   00003C   7415         MOV     A,#0x15
+   \   00003E   F0           MOVX    @DPTR,A
+    419              res = APSME_LookupNwkAddr(serialMac , &shortaddr);
+    420              if(res == false){
+   \   00003F                ; Setup parameters for call to function APSME_LookupNwkAddr
+   \   00003F   85..82       MOV     DPL,?XSP + 0
+   \   000042   85..83       MOV     DPH,?XSP + 1
+   \   000045   AC82         MOV     R4,DPL
+   \   000047   AD83         MOV     R5,DPH
+   \   000049   12....       LCALL   ??APSME_LookupNwkAddr?relay
+   \   00004C   E9           MOV     A,R1
+   \   00004D   700A         JNZ     ??serial_data_handle_3
+    421                // 添加未找到设备回应信息
+    422                HalUARTWrite(0,"can't find MAC device\r",22);
+   \   00004F                ; Setup parameters for call to function HalUARTWrite
+   \   00004F   7C16         MOV     R4,#0x16
+   \   000051   7D00         MOV     R5,#0x0
+   \   000053   7A..         MOV     R2,#`?<Constant "can\\'t find MAC device\\r">` & 0xff
+   \   000055   7B..         MOV     R3,#(`?<Constant "can\\'t find MAC device\\r">` >> 8) & 0xff
+   \   000057   80D9         SJMP    ??serial_data_handle_2
+    423                return;
+    424              }
+    425              Point_To_Point_DstAddr.addr.shortAddr = shortaddr; //发给设备
+   \                     ??serial_data_handle_3:
+   \   000059   85..82       MOV     DPL,?XSP + 0
+   \   00005C   85..83       MOV     DPH,?XSP + 1
+   \   00005F   12....       LCALL   ?Subroutine9 & 0xFFFF
+    426              for(i=0;i<6;i++)
+   \                     ??CrossCallReturnLabel_16:
+   \   000062   7A00         MOV     R2,#0x0
+    427                gizwits_buf[i] = ptr[i+8];
+   \                     ??serial_data_handle_4:
+   \   000064   8A82         MOV     DPL,R2
+   \   000066   A882         MOV     R0,DPL
+   \   000068   EE           MOV     A,R6
+   \   000069   28           ADD     A,R0
+   \   00006A   F582         MOV     DPL,A
+   \   00006C   EF           MOV     A,R7
+   \   00006D   12....       LCALL   ??Subroutine27_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_54:
+   \   000070   A3           INC     DPTR
+   \   000071   A3           INC     DPTR
+   \   000072   A3           INC     DPTR
+   \   000073   A3           INC     DPTR
+   \   000074   A3           INC     DPTR
+   \   000075   A3           INC     DPTR
+   \   000076   A3           INC     DPTR
+   \   000077   A3           INC     DPTR
+   \   000078   E0           MOVX    A,@DPTR
+   \   000079   C0E0         PUSH    A
+   \   00007B   12....       LCALL   ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_35:
+   \   00007E   D0E0         POP     A
+   \   000080   F0           MOVX    @DPTR,A
+   \   000081   0A           INC     R2
+   \   000082   EA           MOV     A,R2
+   \   000083   C3           CLR     C
+   \   000084   9406         SUBB    A,#0x6
+   \   000086   40DC         JC      ??serial_data_handle_4
+    428              sbuf_len = SendData_load(sbuf);
+   \   000088                ; Setup parameters for call to function SendData_load
+   \   000088   12....       LCALL   ?Subroutine21 & 0xFFFF
+    429              if(sbuf_len)
+   \                     ??CrossCallReturnLabel_44:
+   \   00008B   6017         JZ      ??serial_data_handle_0
+    430                ZigLightApp_SendPointToPointMessage(&Point_To_Point_DstAddr,&ZigLightApp_epDesc,sbuf_len,sbuf);
+   \   00008D                ; Setup parameters for call to function ZigLightApp_SendPointToPointMessage
+   \   00008D   75....       MOV     ?V0 + 0,#sbuf & 0xff
+   \   000090   75....       MOV     ?V0 + 1,#(sbuf >> 8) & 0xff
+   \   000093   78..         MOV     R0,#?V0 + 0
+   \   000095   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000098   12....       LCALL   ?Subroutine8 & 0xFFFF
+    431            }
+   \                     ??CrossCallReturnLabel_12:
+   \   00009B   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00009E   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_38:
+   \   0000A1   12....       LCALL   ?DEALLOC_XSTACK8
+   \                     ??serial_data_handle_0:
+   \   0000A4   7402         MOV     A,#0x2
+   \   0000A6   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000A9                REQUIRE ?Subroutine0
+   \   0000A9                ; // Fall through to label ?Subroutine0
+    432          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F02         MOV     R7,#0x2
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine21:
+   \   000000   12....       LCALL   ?Subroutine25 & 0xFFFF
+   \                     ??CrossCallReturnLabel_50:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine19:
+   \   000000   7C..         MOV     R4,#ZigLightApp_epDesc & 0xff
+   \   000002   7D..         MOV     R5,#(ZigLightApp_epDesc >> 8) & 0xff
+   \   000004   7A..         MOV     R2,#Point_To_Point_DstAddr & 0xff
+   \   000006   7B..         MOV     R3,#(Point_To_Point_DstAddr >> 8) & 0xff
+   \   000008   12....       LCALL   ??ZigLightApp_SendPointToPointMessage?relay
+   \   00000B   7404         MOV     A,#0x4
+   \   00000D   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   90....       MOV     DPTR,#sbuf_len
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F5..         MOV     ?V0 + 0,A
+   \   000006   75..00       MOV     ?V0 + 1,#0x0
+   \   000009   78..         MOV     R0,#?V0 + 0
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   90....       MOV     DPTR,#Point_To_Point_DstAddr
+   \   000008   E8           MOV     A,R0
+   \   000009   F0           MOVX    @DPTR,A
+   \   00000A   A3           INC     DPTR
+   \   00000B   E9           MOV     A,R1
+   \   00000C   F0           MOVX    @DPTR,A
+   \   00000D   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine25:
+   \   000000   7A..         MOV     R2,#sbuf & 0xff
+   \   000002   7B..         MOV     R3,#(sbuf >> 8) & 0xff
+   \   000004   12....       LCALL   ??SendData_load?relay
+   \   000007   E9           MOV     A,R1
+   \   000008   90....       MOV     DPTR,#sbuf_len
+   \   00000B   F0           MOVX    @DPTR,A
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    433          void ZigLightApp_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg )
+   \                     ZigLightApp_ProcessZDOMsgs:
+    434          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    435            uint8 i;
+    436            uint8 asc_16[16]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+    437            Node *currentnode;
+    438            switch ( inMsg->clusterID )
+   \   000005   EA           MOV     A,R2
+   \   000006   240C         ADD     A,#0xc
+   \   000008   12....       LCALL   ?Subroutine24 & 0xFFFF
+   \                     ??CrossCallReturnLabel_59:
+   \   00000B   E0           MOVX    A,@DPTR
+   \   00000C   6401         XRL     A,#0x1
+   \   00000E   7004         JNZ     ??ZigLightApp_ProcessZDOMsgs_0
+   \   000010   A3           INC     DPTR
+   \   000011   E0           MOVX    A,@DPTR
+   \   000012   6480         XRL     A,#0x80
+   \                     ??ZigLightApp_ProcessZDOMsgs_0:
+   \   000014   7049         JNZ     ??ZigLightApp_ProcessZDOMsgs_1
+    439            {
+    440              case IEEE_addr_rsp:
+    441                {
+    442                  // Send find device callback to application
+    443                  ZDO_NwkIEEEAddrResp_t *pNwkAddrRsp = ZDO_ParseAddrRsp( inMsg );
+   \   000016                ; Setup parameters for call to function ZDO_ParseAddrRsp
+   \   000016   12....       LCALL   ??ZDO_ParseAddrRsp?relay
+   \   000019   8A..         MOV     ?V0 + 0,R2
+   \   00001B   8B..         MOV     ?V0 + 1,R3
+   \   00001D   AE..         MOV     R6,?V0 + 0
+   \   00001F   AF..         MOV     R7,?V0 + 1
+    444                  currentnode = searchfromList(nodelist,pNwkAddrRsp->extAddr);
+   \   000021                ; Setup parameters for call to function searchfromList
+   \   000021   EE           MOV     A,R6
+   \   000022   2403         ADD     A,#0x3
+   \   000024   FC           MOV     R4,A
+   \   000025   EF           MOV     A,R7
+   \   000026   3400         ADDC    A,#0x0
+   \   000028   FD           MOV     R5,A
+   \   000029   90....       MOV     DPTR,#nodelist
+   \   00002C   E0           MOVX    A,@DPTR
+   \   00002D   FA           MOV     R2,A
+   \   00002E   A3           INC     DPTR
+   \   00002F   E0           MOVX    A,@DPTR
+   \   000030   FB           MOV     R3,A
+   \   000031   12....       LCALL   ??searchfromList?relay
+   \   000034   8A82         MOV     DPL,R2
+   \   000036   8B83         MOV     DPH,R3
+    445                  if(currentnode == NULL)
+   \   000038   E582         MOV     A,DPL
+   \   00003A   4583         ORL     A,DPH
+   \   00003C   7015         JNZ     ??ZigLightApp_ProcessZDOMsgs_2
+    446                    newdevice_joinin = insertLastList(&nodelist,pNwkAddrRsp->extAddr);
+   \   00003E                ; Setup parameters for call to function insertLastList
+   \   00003E   EE           MOV     A,R6
+   \   00003F   2403         ADD     A,#0x3
+   \   000041   FC           MOV     R4,A
+   \   000042   EF           MOV     A,R7
+   \   000043   3400         ADDC    A,#0x0
+   \   000045   FD           MOV     R5,A
+   \   000046   7A..         MOV     R2,#nodelist & 0xff
+   \   000048   7B..         MOV     R3,#(nodelist >> 8) & 0xff
+   \   00004A   12....       LCALL   ??insertLastList?relay
+   \   00004D   E9           MOV     A,R1
+   \   00004E   90....       MOV     DPTR,#newdevice_joinin
+   \   000051   800B         SJMP    ??ZigLightApp_ProcessZDOMsgs_3
+    447                  else
+    448                    currentnode->heartbeatCnt++;
+   \                     ??ZigLightApp_ProcessZDOMsgs_2:
+   \   000053   A3           INC     DPTR
+   \   000054   A3           INC     DPTR
+   \   000055   A3           INC     DPTR
+   \   000056   A3           INC     DPTR
+   \   000057   A3           INC     DPTR
+   \   000058   A3           INC     DPTR
+   \   000059   A3           INC     DPTR
+   \   00005A   A3           INC     DPTR
+   \   00005B   A3           INC     DPTR
+   \   00005C   E0           MOVX    A,@DPTR
+   \   00005D   04           INC     A
+   \                     ??ZigLightApp_ProcessZDOMsgs_3:
+   \   00005E   F0           MOVX    @DPTR,A
+    449          //        ZDO_RemoveRegisteredCB(ZigLightApp_TaskID,IEEE_addr_rsp);
+    450                  if(0)//uart test
+    451                  {
+    452                    HalUARTWrite(0,"\r\naddMac:",9);
+    453                    for(i=0;i<8;i++)
+    454                    {
+    455                      HalUARTWrite(0,&asc_16[pNwkAddrRsp->extAddr[i]%256/16],1);
+    456                      HalUARTWrite(0,&asc_16[pNwkAddrRsp->extAddr[i]%16],1);  
+    457                    }
+    458                    HalUARTWrite(0,"\n",1);
+    459                  }
+    460                }
+    461                break;
+    462            }
+    463          }
+   \                     ??ZigLightApp_ProcessZDOMsgs_1:
+   \   00005F   80..         SJMP    ?Subroutine0
+    464          /***********************************end by liu*****************************************/
+    465          /*********************************************************************
+    466           * @fn      ZigLightApp_ProcessEvent
+    467           *
+    468           * @brief   Generic Application Task event processor.  This function
+    469           *          is called to process all events for the task.  Events
+    470           *          include timers, messages and any other user defined events.
+    471           *
+    472           * @param   task_id  - The OSAL assigned task ID.
+    473           * @param   events - events to process.  This is a bit map and can
+    474           *                   contain more than one event.
+    475           *
+    476           * @return  none
+    477           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    478          uint16 ZigLightApp_ProcessEvent( uint8 task_id, uint16 events )
+   \                     ZigLightApp_ProcessEvent:
+    479          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    480            afIncomingMSGPacket_t *MSGpkt;
+    481            uint8 *msg_ptr;//by liu
+                          ^
+Warning[Pe177]: variable "msg_ptr" was declared but never referenced
+    482            uint8 i;//by liu
+                         ^
+Warning[Pe177]: variable "i" was declared but never referenced
+    483            (void)task_id;  // Intentionally unreferenced parameter
+    484          
+    485            if ( events & SYS_EVENT_MSG )
+   \   000009   5480         ANL     A,#0x80
+   \   00000B   7003         JNZ     $+5
+   \   00000D   02....       LJMP    ??ZigLightApp_ProcessEvent_0 & 0xFFFF
+    486            {
+    487              MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( ZigLightApp_TaskID );
+   \   000010                ; Setup parameters for call to function osal_msg_receive
+   \   000010   8024         SJMP    ??ZigLightApp_ProcessEvent_1
+    488              while ( MSGpkt )
+    489              {
+    490                switch ( MSGpkt->hdr.event )
+    491                {
+    492                  case ZDO_CB_MSG:
+    493                    ZigLightApp_ProcessZDOMsgs( (zdoIncomingMsg_t *)MSGpkt );
+    494                    break;
+    495                  // Received when a key is pressed
+    496                  case KEY_CHANGE:
+    497                    ZigLightApp_HandleKeys( ((keyChange_t *)MSGpkt)->state, ((keyChange_t *)MSGpkt)->keys );
+    498                    break;
+    499          
+    500                  // Received when a messages is received (OTA) for this endpoint
+    501                  case AF_INCOMING_MSG_CMD:
+    502                    ZigLightApp_MessageMSGCB( MSGpkt );
+    503                    break;
+    504          
+    505                  // Received whenever the device changes state in the network
+    506                  case ZDO_STATE_CHANGE:
+    507                    ZigLightApp_NwkState = (devStates_t)(MSGpkt->hdr.status);
+    508          //          if ( //(ZigLightApp_NwkState == DEV_ZB_COORD)|| //协调器不给自己点播
+    509          //               (ZigLightApp_NwkState == DEV_ROUTER)
+    510          //              || (ZigLightApp_NwkState == DEV_END_DEVICE) )
+    511          //          {
+    512                      // Start sending the periodic message in a regular interval.
+    513                      osal_start_timerEx( ZigLightApp_TaskID,
+    514                                        ZigLightApp_SEND_PERIODIC_MSG_EVT,
+    515                                        ZigLightApp_SEND_PERIODIC_MSG_TIMEOUT );
+    516          //          }
+    517          //          else
+    518          //          {
+    519          //            // Device is no longer in the network
+    520          //          }
+    521                    break;
+    522                  case SPI_INCOMING_ZTOOL_PORT:
+    523                    HalUARTWrite(0,"ZTOOL\r",6);
+    524                    break;
+    525                  case SERIAL_INCOMING_MSG:
+    526                    HalUARTWrite(0,"SERIAL\r",7);
+   \                     ??ZigLightApp_ProcessEvent_2:
+   \   000012                ; Setup parameters for call to function HalUARTWrite
+   \   000012   7C07         MOV     R4,#0x7
+   \   000014   7D00         MOV     R5,#0x0
+   \   000016   7A..         MOV     R2,#`?<Constant "SERIAL\\r">` & 0xff
+   \   000018   7B..         MOV     R3,#(`?<Constant "SERIAL\\r">` >> 8) & 0xff
+   \   00001A   7900         MOV     R1,#0x0
+   \   00001C   12....       LCALL   ??HalUARTWrite?relay
+    527                    serial_data_handle(((mtOSALSerialData_t *)MSGpkt)->msg);
+   \   00001F                ; Setup parameters for call to function serial_data_handle
+   \   00001F   85..82       MOV     DPL,?V0 + 0
+   \   000022   85..83       MOV     DPH,?V0 + 1
+   \   000025   A3           INC     DPTR
+   \   000026   A3           INC     DPTR
+   \   000027   E0           MOVX    A,@DPTR
+   \   000028   FA           MOV     R2,A
+   \   000029   A3           INC     DPTR
+   \   00002A   E0           MOVX    A,@DPTR
+   \   00002B   FB           MOV     R3,A
+   \   00002C   12....       LCALL   ??serial_data_handle?relay
+    528          
+    529                    break;
+    530                  default:
+    531                    break;
+    532                }
+    533          
+    534                // Release the memory
+    535                osal_msg_deallocate( (uint8 *)MSGpkt );
+   \                     ??ZigLightApp_ProcessEvent_3:
+   \   00002F                ; Setup parameters for call to function osal_msg_deallocate
+   \   00002F   AA..         MOV     R2,?V0 + 0
+   \   000031   AB..         MOV     R3,?V0 + 1
+   \   000033   12....       LCALL   ??osal_msg_deallocate?relay
+    536          
+    537                // Next - if one is available
+    538                MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( ZigLightApp_TaskID );
+   \   000036                ; Setup parameters for call to function osal_msg_receive
+   \                     ??ZigLightApp_ProcessEvent_1:
+   \   000036   90....       MOV     DPTR,#ZigLightApp_TaskID
+   \   000039   E0           MOVX    A,@DPTR
+   \   00003A   F9           MOV     R1,A
+   \   00003B   12....       LCALL   ??osal_msg_receive?relay
+   \   00003E   8A..         MOV     ?V0 + 0,R2
+   \   000040   8B..         MOV     ?V0 + 1,R3
+   \   000042   E5..         MOV     A,?V0 + 0
+   \   000044   45..         ORL     A,?V0 + 1
+   \   000046   6048         JZ      ??ZigLightApp_ProcessEvent_4
+   \   000048   85..82       MOV     DPL,?V0 + 0
+   \   00004B   85..83       MOV     DPH,?V0 + 1
+   \   00004E   E0           MOVX    A,@DPTR
+   \   00004F   24E6         ADD     A,#-0x1a
+   \   000051   601B         JZ      ??ZigLightApp_ProcessEvent_5
+   \   000053   24F9         ADD     A,#-0x7
+   \   000055   602A         JZ      ??ZigLightApp_ProcessEvent_6
+   \   000057   2450         ADD     A,#0x50
+   \   000059   601C         JZ      ??ZigLightApp_ProcessEvent_7
+   \   00005B   24FE         ADD     A,#-0x2
+   \   00005D   6006         JZ      ??ZigLightApp_ProcessEvent_8
+   \   00005F   24F2         ADD     A,#-0xe
+   \   000061   60AF         JZ      ??ZigLightApp_ProcessEvent_2
+   \   000063   80CA         SJMP    ??ZigLightApp_ProcessEvent_3
+   \                     ??ZigLightApp_ProcessEvent_8:
+   \   000065                ; Setup parameters for call to function ZigLightApp_ProcessZDOMsgs
+   \   000065   AA..         MOV     R2,?V0 + 0
+   \   000067   AB..         MOV     R3,?V0 + 1
+   \   000069   12....       LCALL   ??ZigLightApp_ProcessZDOMsgs?relay
+   \   00006C   80C1         SJMP    ??ZigLightApp_ProcessEvent_3
+   \                     ??ZigLightApp_ProcessEvent_5:
+   \   00006E                ; Setup parameters for call to function ZigLightApp_MessageMSGCB
+   \   00006E   AA..         MOV     R2,?V0 + 0
+   \   000070   AB..         MOV     R3,?V0 + 1
+   \   000072   12....       LCALL   ??ZigLightApp_MessageMSGCB?relay
+   \   000075   80B8         SJMP    ??ZigLightApp_ProcessEvent_3
+   \                     ??ZigLightApp_ProcessEvent_7:
+   \   000077   A3           INC     DPTR
+   \   000078   E0           MOVX    A,@DPTR
+   \   000079   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   00007C   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00007F   80AE         SJMP    ??ZigLightApp_ProcessEvent_3
+   \                     ??ZigLightApp_ProcessEvent_6:
+   \   000081                ; Setup parameters for call to function HalUARTWrite
+   \   000081   7C06         MOV     R4,#0x6
+   \   000083   7D00         MOV     R5,#0x0
+   \   000085   7A..         MOV     R2,#`?<Constant "ZTOOL\\r">` & 0xff
+   \   000087   7B..         MOV     R3,#(`?<Constant "ZTOOL\\r">` >> 8) & 0xff
+   \   000089   7900         MOV     R1,#0x0
+   \   00008B   12....       LCALL   ??HalUARTWrite?relay
+   \   00008E   809F         SJMP    ??ZigLightApp_ProcessEvent_3
+    539              }
+    540          
+    541              // return unprocessed events
+    542              return (events ^ SYS_EVENT_MSG);
+   \                     ??ZigLightApp_ProcessEvent_4:
+   \   000090   EE           MOV     A,R6
+   \   000091   FA           MOV     R2,A
+   \   000092   EF           MOV     A,R7
+   \   000093   6480         XRL     A,#0x80
+   \                     ??ZigLightApp_ProcessEvent_9:
+   \   000095   FB           MOV     R3,A
+   \   000096   02....       LJMP    ??ZigLightApp_ProcessEvent_10 & 0xFFFF
+    543            }
+    544          
+    545            // Send a message out - This event is generated by a timer
+    546            //  (setup in ZigLightApp_Init()).
+    547            if ( events & ZigLightApp_SEND_PERIODIC_MSG_EVT )
+   \                     ??ZigLightApp_ProcessEvent_0:
+   \   000099   EE           MOV     A,R6
+   \   00009A   A2E0         MOV     C,0xE0 /* A   */.0
+   \   00009C   507C         JNC     ??ZigLightApp_ProcessEvent_11
+    548            {
+    549              if(ZigLightApp_NwkState == DEV_ZB_COORD){
+   \   00009E   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   0000A1   E0           MOVX    A,@DPTR
+   \   0000A2   6409         XRL     A,#0x9
+   \   0000A4   7015         JNZ     ??ZigLightApp_ProcessEvent_12
+    550                if(MacToAppFlag == 0 && AutoUpateMac == 0){//在读取mac时禁止链表操作
+   \   0000A6   90....       MOV     DPTR,#MacToAppFlag
+   \   0000A9   E0           MOVX    A,@DPTR
+   \   0000AA   7050         JNZ     ??ZigLightApp_ProcessEvent_13
+   \   0000AC   90....       MOV     DPTR,#AutoUpateMac
+   \   0000AF   E0           MOVX    A,@DPTR
+   \   0000B0   704A         JNZ     ??ZigLightApp_ProcessEvent_13
+    551                  detectHandle(&nodelist);
+   \   0000B2                ; Setup parameters for call to function detectHandle
+   \   0000B2   7A..         MOV     R2,#nodelist & 0xff
+   \   0000B4   7B..         MOV     R3,#(nodelist >> 8) & 0xff
+   \   0000B6   12....       LCALL   ??detectHandle?relay
+   \   0000B9   8026         SJMP    ??ZigLightApp_ProcessEvent_14
+    552                }
+    553              }
+    554              else if(ZigLightApp_NwkState == DEV_ROUTER || ZigLightApp_NwkState == DEV_END_DEVICE ){
+   \                     ??ZigLightApp_ProcessEvent_12:
+   \   0000BB   E0           MOVX    A,@DPTR
+   \   0000BC   6407         XRL     A,#0x7
+   \   0000BE   6005         JZ      ??ZigLightApp_ProcessEvent_15
+   \   0000C0   E0           MOVX    A,@DPTR
+   \   0000C1   6406         XRL     A,#0x6
+   \   0000C3   7024         JNZ     ??ZigLightApp_ProcessEvent_16
+    555                // Send the periodic message
+    556          //      if(main_state != ESTABLISH_CONNECTION_REQ)
+    557          //        return (events ^ ZigLightApp_SEND_PERIODIC_MSG_EVT);
+    558                sbuf_len = SendData_load(sbuf);
+   \                     ??ZigLightApp_ProcessEvent_15:
+   \   0000C5                ; Setup parameters for call to function SendData_load
+   \   0000C5   12....       LCALL   ?Subroutine21 & 0xFFFF
+    559                if(sbuf_len)
+   \                     ??CrossCallReturnLabel_45:
+   \   0000C8   6017         JZ      ??ZigLightApp_ProcessEvent_14
+    560                  ZigLightApp_SendPointToPointMessage(&Point_To_Point_DstAddr,&ZigLightApp_epDesc,sbuf_len,sbuf);
+   \   0000CA                ; Setup parameters for call to function ZigLightApp_SendPointToPointMessage
+   \   0000CA   75....       MOV     ?V0 + 0,#sbuf & 0xff
+   \   0000CD   75....       MOV     ?V0 + 1,#(sbuf >> 8) & 0xff
+   \   0000D0   78..         MOV     R0,#?V0 + 0
+   \   0000D2   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000D5   12....       LCALL   ?Subroutine8 & 0xFFFF
+    561              }
+   \                     ??CrossCallReturnLabel_13:
+   \   0000D8   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000DB   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_39:
+   \   0000DE   12....       LCALL   ?DEALLOC_XSTACK8
+    562              if(ZigLightApp_NwkState != DEV_ZB_COORD){
+   \                     ??ZigLightApp_ProcessEvent_14:
+   \   0000E1   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   0000E4   E0           MOVX    A,@DPTR
+   \   0000E5   6409         XRL     A,#0x9
+   \   0000E7   6013         JZ      ??ZigLightApp_ProcessEvent_13
+    563                if(main_state == HEARTBEAT){
+   \                     ??ZigLightApp_ProcessEvent_16:
+   \   0000E9   90....       MOV     DPTR,#main_state
+   \   0000EC   E0           MOVX    A,@DPTR
+   \   0000ED   6413         XRL     A,#0x13
+   \   0000EF   600B         JZ      ??ZigLightApp_ProcessEvent_13
+    564                  // Setup to send message again in normal period (+ a little jitter)
+    565                  osal_start_timerEx( ZigLightApp_TaskID, ZigLightApp_SEND_PERIODIC_MSG_EVT,
+    566                      (ZigLightApp_SEND_HEARTBEAT_MSG_TIMEOUT + (osal_rand() & 0x0FFF)) );
+   \   0000F1                ; Setup parameters for call to function osal_rand
+    567                }
+    568                else{
+    569                  // Setup to send message again in normal period (+ a little jitter)
+    570                  osal_start_timerEx( ZigLightApp_TaskID, ZigLightApp_SEND_PERIODIC_MSG_EVT,
+    571                      (ZigLightApp_SEND_INIT_REQUEST_MSG_TIMEOUT + (osal_rand() & 0x0FFF)) );
+   \   0000F1                ; Setup parameters for call to function osal_rand
+   \   0000F1   12....       LCALL   ?Subroutine16 & 0xFFFF
+    572                }
+    573              }
+   \                     ??CrossCallReturnLabel_32:
+   \   0000F4   24E8         ADD     A,#-0x18
+   \   0000F6   FC           MOV     R4,A
+   \   0000F7   E9           MOV     A,R1
+   \   0000F8   3403         ADDC    A,#0x3
+   \   0000FA   8009         SJMP    ??ZigLightApp_ProcessEvent_17
+    574              else{
+    575                  // Setup to send message again in normal period (+ a little jitter)
+    576                  osal_start_timerEx( ZigLightApp_TaskID, ZigLightApp_SEND_PERIODIC_MSG_EVT,
+    577                      (ZigLightApp_SEND_HEARTBEAT_MSG_TIMEOUT + (osal_rand() & 0x0FFF)) );
+   \                     ??ZigLightApp_ProcessEvent_13:
+   \   0000FC                ; Setup parameters for call to function osal_rand
+   \   0000FC   12....       LCALL   ?Subroutine16 & 0xFFFF
+    578              }
+   \                     ??CrossCallReturnLabel_33:
+   \   0000FF   2410         ADD     A,#0x10
+   \   000101   FC           MOV     R4,A
+   \   000102   E9           MOV     A,R1
+   \   000103   3427         ADDC    A,#0x27
+   \                     ??ZigLightApp_ProcessEvent_17:
+   \   000105   FD           MOV     R5,A
+   \   000106   7A01         MOV     R2,#0x1
+   \   000108   7B00         MOV     R3,#0x0
+   \   00010A   90....       MOV     DPTR,#ZigLightApp_TaskID
+   \   00010D   E0           MOVX    A,@DPTR
+   \   00010E   F9           MOV     R1,A
+   \   00010F   12....       LCALL   ??osal_start_timerEx?relay
+    579              // return unprocessed events
+    580              return (events ^ ZigLightApp_SEND_PERIODIC_MSG_EVT);
+   \   000112   EE           MOV     A,R6
+   \   000113   6401         XRL     A,#0x1
+   \   000115   FA           MOV     R2,A
+   \   000116   EF           MOV     A,R7
+   \   000117   02....       LJMP    ??ZigLightApp_ProcessEvent_9 & 0xFFFF
+    581            }
+    582          
+    583            // Discard unknown events
+    584            return 0;
+   \                     ??ZigLightApp_ProcessEvent_11:
+   \   00011A   7A00         MOV     R2,#0x0
+   \   00011C   7B00         MOV     R3,#0x0
+   \                     ??ZigLightApp_ProcessEvent_10:
+   \   00011E   7F04         MOV     R7,#0x4
+   \   000120   02....       LJMP    ?BANKED_LEAVE_XDATA
+    585          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine16:
+   \   000000   12....       LCALL   ??osal_rand?relay
+   \   000003                ; Setup parameters for call to function osal_start_timerEx
+   \   000003                ; Setup parameters for call to function osal_start_timerEx
+   \   000003   EA           MOV     A,R2
+   \   000004   F8           MOV     R0,A
+   \   000005   EB           MOV     A,R3
+   \   000006   540F         ANL     A,#0xf
+   \   000008   F9           MOV     R1,A
+   \   000009   E8           MOV     A,R0
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001                ; Setup parameters for call to function osal_start_timerEx
+   \   000001                ; Setup parameters for call to function osal_start_timerEx
+   \   000001   7CB8         MOV     R4,#-0x48
+   \   000003   7D0B         MOV     R5,#0xb
+   \   000005   7A01         MOV     R2,#0x1
+   \   000007   7B00         MOV     R3,#0x0
+   \   000009   90....       MOV     DPTR,#ZigLightApp_TaskID
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   F9           MOV     R1,A
+   \   00000E   12....       LCALL   ??osal_start_timerEx?relay
+   \   000011   22           RET
+    586          
+    587          /*********************************************************************
+    588           * Event Generation Functions
+    589           */
+    590          /*********************************************************************
+    591           * @fn      ZigLightApp_HandleKeys
+    592           *
+    593           * @brief   Handles all key events for this device.
+    594           *
+    595           * @param   shift - true if in shift/alt.
+    596           * @param   keys - bit field for key events. Valid entries:
+    597           *                 HAL_KEY_SW_2
+    598           *                 HAL_KEY_SW_1
+    599           *
+    600           * @return  none
+    601           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    602          void ZigLightApp_HandleKeys( uint8 shift, uint8 keys )
+   \                     ZigLightApp_HandleKeys:
+    603          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    604            (void)shift;  // Intentionally unreferenced parameter
+    605            //by liu
+    606          //  if ( keys & HAL_KEY_SW_1 )
+    607          //  {
+    608          //    /* This key sends the Flash Command is sent to Group 1.
+    609          //     * This device will not receive the Flash Command from this
+    610          //     * device (even if it belongs to group 1).
+    611          //     */
+    612          //    ZigLightApp_SendFlashMessage( ZigLightApp_FLASH_DURATION );
+    613          //  }
+    614          //
+    615          //  if ( keys & HAL_KEY_SW_2 )
+    616          //  {
+    617          //    /* The Flashr Command is sent to Group 1.
+    618          //     * This key toggles this device in and out of group 1.
+    619          //     * If this device doesn't belong to group 1, this application
+    620          //     * will not receive the Flash command sent to group 1.
+    621          //     */
+    622          //    aps_Group_t *grp;
+    623          //    grp = aps_FindGroup( ZigLightApp_ENDPOINT, ZigLightApp_FLASH_GROUP );
+    624          //    if ( grp )
+    625          //    {
+    626          //      // Remove from the group
+    627          //      aps_RemoveGroup( ZigLightApp_ENDPOINT, ZigLightApp_FLASH_GROUP );
+    628          //    }
+    629          //    else
+    630          //    {
+    631          //      // Add to the flash group
+    632          //      aps_AddGroup( ZigLightApp_ENDPOINT, &ZigLightApp_Group );
+    633          //    }
+    634          //  }
+    635          }
+   \   000000   02....       LJMP    ?BRET
+    636          /**********************************
+    637          * add by liu 
+    638          *************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    639          void rfdata_handle( afIncomingMSGPacket_t *pkt )
+   \                     rfdata_handle:
+    640          {
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 16
+   \   000005   74F0         MOV     A,#-0x10
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8A..         MOV     ?V0 + 4,R2
+   \   00000C   8B..         MOV     ?V0 + 5,R3
+    641            uint8 asc_16[16]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+   \   00000E   85..82       MOV     DPL,?XSP + 0
+   \   000011   85..83       MOV     DPH,?XSP + 1
+   \   000014   AC82         MOV     R4,DPL
+   \   000016   AD83         MOV     R5,DPH
+   \   000018   7583..       MOV     DPH,#(`?<Constant {48, 49, 50, 51, 52, 53, 54, 55, 56` >> 8) & 0xff
+   \   00001B   7582..       MOV     DPL,#`?<Constant {48, 49, 50, 51, 52, 53, 54, 55, 56` & 0xff
+   \   00001E   7410         MOV     A,#0x10
+   \   000020   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+    642            uint8 i;
+    643            switch(pkt->cmd.Data[0]){
+   \   000023   12....       LCALL   ?Subroutine20 & 0xFFFF
+   \                     ??CrossCallReturnLabel_42:
+   \   000026   12....       LCALL   ?Subroutine26 & 0xFFFF
+   \                     ??CrossCallReturnLabel_52:
+   \   000029   E0           MOVX    A,@DPTR
+   \   00002A   601C         JZ      ??rfdata_handle_0
+   \   00002C   14           DEC     A
+   \   00002D   7003         JNZ     $+5
+   \   00002F   02....       LJMP    ??rfdata_handle_1 & 0xFFFF
+   \   000032   14           DEC     A
+   \   000033   7003         JNZ     $+5
+   \   000035   02....       LJMP    ??rfdata_handle_2 & 0xFFFF
+   \   000038   24FE         ADD     A,#-0x2
+   \   00003A   7003         JNZ     $+5
+   \   00003C   02....       LJMP    ??rfdata_handle_3 & 0xFFFF
+   \   00003F   14           DEC     A
+   \   000040   7003         JNZ     $+5
+   \   000042   02....       LJMP    ??rfdata_handle_4 & 0xFFFF
+   \   000045   02....       LJMP    ??rfdata_handle_5 & 0xFFFF
+    644            case 0://接收到建立標示req
+    645              {
+    646                if(ZigLightApp_NwkState == DEV_ZB_COORD){
+   \                     ??rfdata_handle_0:
+   \   000048   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   00004B   E0           MOVX    A,@DPTR
+   \   00004C   6409         XRL     A,#0x9
+   \   00004E   6003         JZ      $+5
+   \   000050   02....       LJMP    ??rfdata_handle_2 & 0xFFFF
+    647                  HalUARTWrite(0,"devreq",6);
+   \   000053                ; Setup parameters for call to function HalUARTWrite
+   \   000053   7C06         MOV     R4,#0x6
+   \   000055   7D00         MOV     R5,#0x0
+   \   000057   7A..         MOV     R2,#`?<Constant "devreq">` & 0xff
+   \   000059   7B..         MOV     R3,#(`?<Constant "devreq">` >> 8) & 0xff
+   \   00005B   7900         MOV     R1,#0x0
+   \   00005D   12....       LCALL   ??HalUARTWrite?relay
+    648                  HalUARTWrite(0,&asc_16[pkt->cmd.Data[1]],1);  
+   \   000060                ; Setup parameters for call to function HalUARTWrite
+   \   000060   7C01         MOV     R4,#0x1
+   \   000062   7D00         MOV     R5,#0x0
+   \   000064   E5..         MOV     A,?V0 + 4
+   \   000066   2422         ADD     A,#0x22
+   \   000068   F582         MOV     DPL,A
+   \   00006A   E5..         MOV     A,?V0 + 5
+   \   00006C   12....       LCALL   ??Subroutine27_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_55:
+   \   00006F   E0           MOVX    A,@DPTR
+   \   000070   F8           MOV     R0,A
+   \   000071   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   000074   12....       LCALL   ?Subroutine23 & 0xFFFF
+    649                  HalUARTWrite(0,"\r\n",2);
+   \                     ??CrossCallReturnLabel_48:
+   \   000077                ; Setup parameters for call to function HalUARTWrite
+   \   000077   7C02         MOV     R4,#0x2
+   \   000079   7D00         MOV     R5,#0x0
+   \   00007B   7A..         MOV     R2,#`?<Constant "\\r\\n">` & 0xff
+   \   00007D   7B..         MOV     R3,#(`?<Constant "\\r\\n">` >> 8) & 0xff
+   \   00007F   7900         MOV     R1,#0x0
+   \   000081   12....       LCALL   ??HalUARTWrite?relay
+    650                  main_state = ESTABLISH_CONNECTION_RSQ;//返回建立標示rsq
+   \   000084   90....       MOV     DPTR,#main_state
+   \   000087   7412         MOV     A,#0x12
+   \   000089   12....       LCALL   ?Subroutine5 & 0xFFFF
+    651                  sbuf_len = SendData_load(sbuf);
+    652                  if(sbuf_len){
+   \                     ??CrossCallReturnLabel_6:
+   \   00008C   7003         JNZ     $+5
+   \   00008E   02....       LJMP    ??rfdata_handle_2 & 0xFFFF
+    653                    Point_To_Point_DstAddr.addr.shortAddr = pkt->srcAddr.addr.shortAddr;
+   \   000091   85..82       MOV     DPL,?V0 + 4
+   \   000094   85..83       MOV     DPH,?V0 + 5
+   \   000097   A3           INC     DPTR
+   \   000098   A3           INC     DPTR
+   \   000099   A3           INC     DPTR
+   \   00009A   A3           INC     DPTR
+   \   00009B   A3           INC     DPTR
+   \   00009C   A3           INC     DPTR
+   \   00009D   12....       LCALL   ?Subroutine9 & 0xFFFF
+    654                    ZigLightApp_SendPointToPointMessage(&Point_To_Point_DstAddr,&ZigLightApp_epDesc,sbuf_len,sbuf);//返回建立標示rsq
+   \                     ??CrossCallReturnLabel_17:
+   \   0000A0                ; Setup parameters for call to function ZigLightApp_SendPointToPointMessage
+   \   0000A0   75....       MOV     ?V0 + 0,#sbuf & 0xff
+   \   0000A3   75....       MOV     ?V0 + 1,#(sbuf >> 8) & 0xff
+   \   0000A6   78..         MOV     R0,#?V0 + 0
+   \   0000A8   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000AB   12....       LCALL   ?Subroutine8 & 0xFFFF
+    655                  }
+    656                }
+    657                break;
+    658              }
+   \                     ??CrossCallReturnLabel_14:
+   \   0000AE   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000B1   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_40:
+   \   0000B4   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000B7   02....       LJMP    ??rfdata_handle_2 & 0xFFFF
+    659            case 1://接收到建立標示rsq
+    660              {
+    661                if(ZigLightApp_NwkState != DEV_ZB_COORD){
+   \                     ??rfdata_handle_1:
+   \   0000BA   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   0000BD   E0           MOVX    A,@DPTR
+   \   0000BE   6409         XRL     A,#0x9
+   \   0000C0   7003         JNZ     $+5
+   \   0000C2   02....       LJMP    ??rfdata_handle_2 & 0xFFFF
+    662                  if(pkt->cmd.Data[1] == 1){//成功加入協調器 開始發送心跳包
+   \   0000C5   12....       LCALL   ?Subroutine20 & 0xFFFF
+   \                     ??CrossCallReturnLabel_43:
+   \   0000C8   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   0000CB   6401         XRL     A,#0x1
+   \   0000CD   6003         JZ      $+5
+   \   0000CF   02....       LJMP    ??rfdata_handle_2 & 0xFFFF
+    663                    main_state = HEARTBEAT;
+   \   0000D2   90....       MOV     DPTR,#main_state
+   \   0000D5   7413         MOV     A,#0x13
+   \   0000D7   F0           MOVX    @DPTR,A
+   \   0000D8   02....       LJMP    ??rfdata_handle_2 & 0xFFFF
+    664                  }
+    665                }
+    666                break;
+    667              }
+    668            case 2://接收到心跳包
+    669              {
+    670                //nothing to do 
+    671                break;
+    672              }
+    673            case 4://接收到設備狀態改變信號
+    674              {
+    675                if(ZigLightApp_NwkState == DEV_ZB_COORD){
+   \                     ??rfdata_handle_3:
+   \   0000DB   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   0000DE   E0           MOVX    A,@DPTR
+   \   0000DF   6409         XRL     A,#0x9
+   \   0000E1   6003         JZ      $+5
+   \   0000E3   02....       LJMP    ??rfdata_handle_2 & 0xFFFF
+    676                // update to gizwit
+    677                  HalUARTWrite(0,"stat:",5);
+   \   0000E6                ; Setup parameters for call to function HalUARTWrite
+   \   0000E6   7C05         MOV     R4,#0x5
+   \   0000E8   7D00         MOV     R5,#0x0
+   \   0000EA   7A..         MOV     R2,#`?<Constant "stat:">` & 0xff
+   \   0000EC   7B..         MOV     R3,#(`?<Constant "stat:">` >> 8) & 0xff
+   \   0000EE   7900         MOV     R1,#0x0
+   \   0000F0   12....       LCALL   ??HalUARTWrite?relay
+    678                  for(i=0;i<8;i++){
+   \   0000F3   75..00       MOV     ?V0 + 2,#0x0
+    679                    HalUARTWrite(0,&asc_16[(currentMac[i])>>4],1);  
+   \                     ??rfdata_handle_6:
+   \   0000F6   85....       MOV     ?V0 + 0,?V0 + 2
+   \   0000F9   74..         MOV     A,#currentMac & 0xff
+   \   0000FB   25..         ADD     A,?V0 + 0
+   \   0000FD   FE           MOV     R6,A
+   \   0000FE   74..         MOV     A,#(currentMac >> 8) & 0xff
+   \   000100   12....       LCALL   ?Subroutine14 & 0xFFFF
+    680                    HalUARTWrite(0,&asc_16[(currentMac[i])&0x0f],1); 
+    681                  }
+   \                     ??CrossCallReturnLabel_28:
+   \   000103   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   000106   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_26:
+   \   000109   E5..         MOV     A,?V0 + 2
+   \   00010B   C3           CLR     C
+   \   00010C   9408         SUBB    A,#0x8
+   \   00010E   40E6         JC      ??rfdata_handle_6
+    682                  for(i=0;i<pkt->cmd.DataLength;i++){
+   \   000110   75..00       MOV     ?V0 + 2,#0x0
+   \   000113   8018         SJMP    ??CrossCallReturnLabel_27
+    683                    HalUARTWrite(0,&asc_16[(pkt->cmd.Data[i])>>4],1);  
+   \                     ??rfdata_handle_7:
+   \   000115   E5..         MOV     A,?V0 + 4
+   \   000117   2422         ADD     A,#0x22
+   \   000119   FE           MOV     R6,A
+   \   00011A   E5..         MOV     A,?V0 + 5
+   \   00011C   12....       LCALL   ?Subroutine14 & 0xFFFF
+    684                    HalUARTWrite(0,&asc_16[(pkt->cmd.Data[i])&0x0f],1); 
+    685                  }
+   \                     ??CrossCallReturnLabel_29:
+   \   00011F   E0           MOVX    A,@DPTR
+   \   000120   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_30:
+   \   000123   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   000126   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_31:
+   \   000129   E0           MOVX    A,@DPTR
+   \   00012A   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_27:
+   \   00012D   85....       MOV     ?V0 + 0,?V0 + 2
+   \   000130   E5..         MOV     A,?V0 + 4
+   \   000132   2420         ADD     A,#0x20
+   \   000134   F582         MOV     DPL,A
+   \   000136   E5..         MOV     A,?V0 + 5
+   \   000138   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_36:
+   \   00013B   C3           CLR     C
+   \   00013C   E5..         MOV     A,?V0 + 0
+   \   00013E   98           SUBB    A,R0
+   \   00013F   E4           CLR     A
+   \   000140   99           SUBB    A,R1
+   \   000141   40D2         JC      ??rfdata_handle_7
+    686                  HalUARTWrite(0,"\r\n",2);
+   \   000143                ; Setup parameters for call to function HalUARTWrite
+   \   000143   7C02         MOV     R4,#0x2
+   \   000145   7D00         MOV     R5,#0x0
+   \   000147   7A..         MOV     R2,#`?<Constant "\\r\\n">` & 0xff
+   \   000149   7B..         MOV     R3,#(`?<Constant "\\r\\n">` >> 8) & 0xff
+   \   00014B   806C         SJMP    ??rfdata_handle_8
+    687                }
+    688                break;
+    689              }
+    690            case 5:
+    691              {
+    692                if(ZigLightApp_NwkState != DEV_ZB_COORD){
+   \                     ??rfdata_handle_4:
+   \   00014D   90....       MOV     DPTR,#ZigLightApp_NwkState
+   \   000150   E0           MOVX    A,@DPTR
+   \   000151   6409         XRL     A,#0x9
+   \   000153   6069         JZ      ??rfdata_handle_2
+    693                // 增加pwm控制程序
+    694                //pwm_handle(on_off,w,r,g,b);
+    695          
+    696                  on_off  = pkt->cmd.Data[1];
+   \   000155   EA           MOV     A,R2
+   \   000156   2422         ADD     A,#0x22
+   \   000158   FE           MOV     R6,A
+   \   000159   EB           MOV     A,R3
+   \   00015A   3400         ADDC    A,#0x0
+   \   00015C   FF           MOV     R7,A
+   \   00015D   8E82         MOV     DPL,R6
+   \   00015F   8F83         MOV     DPH,R7
+   \   000161   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   000164   90....       MOV     DPTR,#on_off
+   \   000167   12....       LCALL   ?Subroutine4 & 0xFFFF
+    697                  white   = pkt->cmd.Data[2];
+   \                     ??CrossCallReturnLabel_4:
+   \   00016A   E0           MOVX    A,@DPTR
+   \   00016B   90....       MOV     DPTR,#white
+   \   00016E   12....       LCALL   ?Subroutine4 & 0xFFFF
+    698                  red     = pkt->cmd.Data[3];
+   \                     ??CrossCallReturnLabel_5:
+   \   000171   A3           INC     DPTR
+   \   000172   E0           MOVX    A,@DPTR
+   \   000173   90....       MOV     DPTR,#red
+   \   000176   12....       LCALL   ?Subroutine3 & 0xFFFF
+    699                  green   = pkt->cmd.Data[4];
+   \                     ??CrossCallReturnLabel_2:
+   \   000179   E0           MOVX    A,@DPTR
+   \   00017A   90....       MOV     DPTR,#green
+   \   00017D   12....       LCALL   ?Subroutine3 & 0xFFFF
+    700                  blue    = pkt->cmd.Data[5];
+   \                     ??CrossCallReturnLabel_3:
+   \   000180   A3           INC     DPTR
+   \   000181   E0           MOVX    A,@DPTR
+   \   000182   90....       MOV     DPTR,#blue
+   \   000185   F0           MOVX    @DPTR,A
+    701                  main_state = DEVICE_STATUS_CHANGE;
+   \   000186   90....       MOV     DPTR,#main_state
+   \   000189   7414         MOV     A,#0x14
+   \   00018B   12....       LCALL   ?Subroutine5 & 0xFFFF
+    702                  sbuf_len = SendData_load(sbuf);
+    703                  if(sbuf_len)
+   \                     ??CrossCallReturnLabel_7:
+   \   00018E   6017         JZ      ??rfdata_handle_9
+    704                    ZigLightApp_SendPointToPointMessage(&Point_To_Point_DstAddr,&ZigLightApp_epDesc,sbuf_len,sbuf);
+   \   000190                ; Setup parameters for call to function ZigLightApp_SendPointToPointMessage
+   \   000190   75....       MOV     ?V0 + 0,#sbuf & 0xff
+   \   000193   75....       MOV     ?V0 + 1,#(sbuf >> 8) & 0xff
+   \   000196   78..         MOV     R0,#?V0 + 0
+   \   000198   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00019B   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   00019E   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0001A1   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_41:
+   \   0001A4   12....       LCALL   ?DEALLOC_XSTACK8
+    705                  main_state = HEARTBEAT;
+   \                     ??rfdata_handle_9:
+   \   0001A7   90....       MOV     DPTR,#main_state
+   \   0001AA   7413         MOV     A,#0x13
+   \   0001AC   12....       LCALL   ?Subroutine2 & 0xFFFF
+    706                  //重新计时3秒
+    707                  osal_start_timerEx( ZigLightApp_TaskID, ZigLightApp_SEND_PERIODIC_MSG_EVT,
+    708                      (ZigLightApp_SEND_PERIODIC_MSG_TIMEOUT ) );
+    709                }
+    710                break;
+    711              }
+   \                     ??CrossCallReturnLabel_1:
+   \   0001AF   800D         SJMP    ??rfdata_handle_2
+    712            default:
+    713              {
+    714                HalUARTWrite(0,"rf error\r\n",10);
+   \                     ??rfdata_handle_5:
+   \   0001B1                ; Setup parameters for call to function HalUARTWrite
+   \   0001B1   7C0A         MOV     R4,#0xa
+   \   0001B3   7D00         MOV     R5,#0x0
+   \   0001B5   7A..         MOV     R2,#`?<Constant "rf error\\r\\n">` & 0xff
+   \   0001B7   7B..         MOV     R3,#(`?<Constant "rf error\\r\\n">` >> 8) & 0xff
+   \                     ??rfdata_handle_8:
+   \   0001B9   7900         MOV     R1,#0x0
+   \   0001BB   12....       LCALL   ??HalUARTWrite?relay
+    715              }
+    716            }
+    717          //  if( (pkt->cmd.Data[0])==4 )
+    718          //  {
+    719          //    HalUARTWrite(0,"dstatus",7);
+    720          //    HalUARTWrite(0,&asc_16[pkt->cmd.Data[0]],1);  
+    721          //    HalUARTWrite(0,"\r\n",2);
+    722          //  }
+    723          }
+   \                     ??rfdata_handle_2:
+   \   0001BE   7410         MOV     A,#0x10
+   \   0001C0   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0001C3                REQUIRE ?Subroutine1
+   \   0001C3                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F06         MOV     R7,#0x6
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine20:
+   \   000000   EA           MOV     A,R2
+   \   000001   2422         ADD     A,#0x22
+   \   000003   12....       LCALL   ?Subroutine24 & 0xFFFF
+   \                     ??CrossCallReturnLabel_60:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine15:
+   \   000000   25..         ADD     A,?V0 + 0
+   \   000002   F8           MOV     R0,A
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   3400         ADDC    A,#0x0
+   \   000007   8882         MOV     DPL,R0
+   \   000009   F583         MOV     DPH,A
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   3400         ADDC    A,#0x0
+   \   000002   FF           MOV     R7,A
+   \   000003                ; Setup parameters for call to function HalUARTWrite
+   \   000003                ; Setup parameters for call to function HalUARTWrite
+   \   000003   7C01         MOV     R4,#0x1
+   \   000005   7D00         MOV     R5,#0x0
+   \   000007   8E82         MOV     DPL,R6
+   \   000009   8F83         MOV     DPH,R7
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   540F         ANL     A,#0xf
+   \   000002   F8           MOV     R0,A
+   \   000003   7900         MOV     R1,#0x0
+   \   000005   85..82       MOV     DPL,?XSP + 0
+   \   000008   85..83       MOV     DPH,?XSP + 1
+   \   00000B   E582         MOV     A,DPL
+   \   00000D   28           ADD     A,R0
+   \   00000E   FA           MOV     R2,A
+   \   00000F   E583         MOV     A,DPH
+   \   000011   3400         ADDC    A,#0x0
+   \   000013   FB           MOV     R3,A
+   \   000014   12....       LCALL   ??HalUARTWrite?relay
+   \   000017   05..         INC     ?V0 + 2
+   \   000019   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   A3           INC     DPTR
+   \   000001   E0           MOVX    A,@DPTR
+   \   000002   F583         MOV     DPH,A
+   \   000004   8882         MOV     DPL,R0
+   \   000006   A3           INC     DPTR
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   C4           SWAP    A
+   \   000002   540F         ANL     A,#0xf
+   \   000004   12....       LCALL   ?Subroutine23 & 0xFFFF
+   \                     ??CrossCallReturnLabel_49:
+   \   000007                ; Setup parameters for call to function HalUARTWrite
+   \   000007                ; Setup parameters for call to function HalUARTWrite
+   \   000007   7C01         MOV     R4,#0x1
+   \   000009   7D00         MOV     R5,#0x0
+   \   00000B   8E82         MOV     DPL,R6
+   \   00000D   8F83         MOV     DPH,R7
+   \   00000F   E0           MOVX    A,@DPTR
+   \   000010   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine23:
+   \   000000   F8           MOV     R0,A
+   \   000001   85..82       MOV     DPL,?XSP + 0
+   \   000004   85..83       MOV     DPH,?XSP + 1
+   \   000007   E582         MOV     A,DPL
+   \   000009   28           ADD     A,R0
+   \   00000A   FA           MOV     R2,A
+   \   00000B   E583         MOV     A,DPH
+   \   00000D   3400         ADDC    A,#0x0
+   \   00000F   FB           MOV     R3,A
+   \   000010   7900         MOV     R1,#0x0
+   \   000012   12....       LCALL   ??HalUARTWrite?relay
+   \   000015   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001                ; Setup parameters for call to function SendData_load
+   \   000001                ; Setup parameters for call to function SendData_load
+   \   000001   12....       LCALL   ?Subroutine25 & 0xFFFF
+   \                     ??CrossCallReturnLabel_51:
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   12....       LCALL   ?Subroutine22 & 0xFFFF
+   \                     ??CrossCallReturnLabel_46:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine22:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   8E82         MOV     DPL,R6
+   \   000003   8F83         MOV     DPH,R7
+   \   000005   12....       LCALL   ?Subroutine26 & 0xFFFF
+   \                     ??CrossCallReturnLabel_53:
+   \   000008   A3           INC     DPTR
+   \   000009   A3           INC     DPTR
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine26:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F583         MOV     DPH,A
+   \   000006   8882         MOV     DPL,R0
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   12....       LCALL   ?Subroutine22 & 0xFFFF
+   \                     ??CrossCallReturnLabel_47:
+   \   000003   A3           INC     DPTR
+   \   000004   A3           INC     DPTR
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine18:
+   \   000000   12....       LCALL   ??Subroutine27_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_57:
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F8           MOV     R0,A
+   \   000005   A3           INC     DPTR
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   F9           MOV     R1,A
+   \   000008   22           RET
+    724          /*********************************************************************
+    725           * LOCAL FUNCTIONS
+    726           */
+    727          
+    728          /*********************************************************************
+    729           * @fn      ZigLightApp_MessageMSGCB
+    730           *
+    731           * @brief   Data message processor callback.  This function processes
+    732           *          any incoming data - probably from other devices.  So, based
+    733           *          on cluster ID, perform the intended action.
+    734           *
+    735           * @param   none
+    736           *
+    737           * @return  none
+    738           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    739          void ZigLightApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
+   \                     ZigLightApp_MessageMSGCB:
+    740          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    741            uint16 flashTime,temp;  
+                                    ^
+Warning[Pe550]: variable "temp" was set but never used
+    742            uint8 *ptr,i,res;
+                          ^
+Warning[Pe177]: variable "ptr" was declared but never referenced
+
+    uint8 *ptr,i,res;
+               ^
+"E:\work\smartlight\ZigLight001\Projects\zstack\Samples\ZigLightApp\Source\ZigLightApp.c",742  Warning[Pe177]: 
+          variable "i" was declared but never referenced
+
+    uint8 *ptr,i,res;
+                 ^
+"E:\work\smartlight\ZigLight001\Projects\zstack\Samples\ZigLightApp\Source\ZigLightApp.c",742  Warning[Pe550]: 
+          variable "res" was set but never used
+    743          //  uint8 tp[10];
+    744          //  uint8 index;
+    745            //网蜂16进制转ASCII码表
+    746              uint8 asc_16[16]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+                           ^
+Warning[Pe177]: variable "asc_16" was declared but never referenced
+    747                               
+    748            switch ( pkt->clusterId )
+   \   000009   8E82         MOV     DPL,R6
+   \   00000B   8F83         MOV     DPH,R7
+   \   00000D   A3           INC     DPTR
+   \   00000E   A3           INC     DPTR
+   \   00000F   A3           INC     DPTR
+   \   000010   A3           INC     DPTR
+   \   000011   E0           MOVX    A,@DPTR
+   \   000012   F5..         MOV     ?V0 + 0,A
+   \   000014   A3           INC     DPTR
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   F5..         MOV     ?V0 + 1,A
+   \   000018   78..         MOV     R0,#?V0 + 0
+   \   00001A   12....       LCALL   ?US_SWITCH_DENSE
+   \                     `?<Jumptable for ZigLightApp_MessageMSGCB>_0`:
+   \   00001D   0200         DW        2
+   \   00001F   01           DB        1
+   \   000020   ....         DW        ??ZigLightApp_MessageMSGCB_0
+   \   000022   ....         DW        ??ZigLightApp_MessageMSGCB_1
+   \   000024   ....         DW        ??ZigLightApp_MessageMSGCB_2
+    749            {
+    750              case ZigLightApp_POINT_TO_POINT_CLUSTERID:  
+    751                if(MacToAppFlag == 0 && AutoUpateMac == 0){//在读取mac时禁止zigbee操作
+   \                     ??ZigLightApp_MessageMSGCB_2:
+   \   000026   90....       MOV     DPTR,#MacToAppFlag
+   \   000029   E0           MOVX    A,@DPTR
+   \   00002A   7047         JNZ     ??ZigLightApp_MessageMSGCB_0
+   \   00002C   90....       MOV     DPTR,#AutoUpateMac
+   \   00002F   E0           MOVX    A,@DPTR
+   \   000030   7041         JNZ     ??ZigLightApp_MessageMSGCB_0
+    752                  res = mac_table_fresh( pkt );
+   \   000032                ; Setup parameters for call to function mac_table_fresh
+   \   000032   12....       LCALL   ??mac_table_fresh?relay
+    753          //        if(res == 0)
+    754                  rfdata_handle( pkt );
+   \   000035                ; Setup parameters for call to function rfdata_handle
+   \   000035   EE           MOV     A,R6
+   \   000036   FA           MOV     R2,A
+   \   000037   EF           MOV     A,R7
+   \   000038   FB           MOV     R3,A
+   \   000039   12....       LCALL   ??rfdata_handle?relay
+   \   00003C   8035         SJMP    ??ZigLightApp_MessageMSGCB_0
+    755                }
+    756                temp=pkt->srcAddr.addr.shortAddr; //读出数据包的16位短地址
+    757          //      for(i=0;i<pkt->cmd.DataLength;i++)
+    758          //      {
+    759          //        HalUARTWrite(0,&asc_16[pkt->cmd.Data[i]%256/16],1);
+    760          //        HalUARTWrite(0,&asc_16[pkt->cmd.Data[i]%16],1);  
+    761          //      }
+    762          //      HalUARTWrite(0,"\r",1);
+    763          //      HalUARTWrite(0,"\n",1);               // 回车换行
+    764          //      if (   (ZigLightApp_NwkState == DEV_ZB_COORD) ){
+    765          //        if( ((pkt->cmd.Data[1])&0x03)==1 ) //路由器        
+    766          //          HalUARTWrite(0,"ROUTER ShortAddr:0x",19); //提示接收到数据
+    767          //        if( ((pkt->cmd.Data[1])&0x03)==2 ) //终端
+    768          //          HalUARTWrite(0,"ENDDEVICE ShortAddr:0x",22); //提示接收到数据
+    769          //          /****将短地址分解，ASC码打印*****/
+    770          //        HalUARTWrite(0,&asc_16[temp/4096],1);
+    771          //        HalUARTWrite(0,&asc_16[temp%4096/256],1);
+    772          //        HalUARTWrite(0,&asc_16[temp%256/16],1);
+    773          //        HalUARTWrite(0,&asc_16[temp%16],1);  
+    774          //        HalUARTWrite(0,"\r",1);
+    775          //        HalUARTWrite(0,"\n",1);               // 回车换行
+    776          //      }
+    777                break;
+    778          
+    779              case ZigLightApp_FLASH_CLUSTERID:
+    780                flashTime = BUILD_UINT16(pkt->cmd.Data[1], pkt->cmd.Data[2] );
+    781                HalLedBlink( HAL_LED_4, 4, 50, (flashTime / 4) );
+   \                     ??ZigLightApp_MessageMSGCB_1:
+   \   00003E   EE           MOV     A,R6
+   \   00003F   2422         ADD     A,#0x22
+   \   000041   F582         MOV     DPL,A
+   \   000043   EF           MOV     A,R7
+   \   000044   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_37:
+   \   000047                ; Setup parameters for call to function HalLedBlink
+   \   000047   8882         MOV     DPL,R0
+   \   000049   8983         MOV     DPH,R1
+   \   00004B   A3           INC     DPTR
+   \   00004C   E0           MOVX    A,@DPTR
+   \   00004D   FA           MOV     R2,A
+   \   00004E   8882         MOV     DPL,R0
+   \   000050   8983         MOV     DPH,R1
+   \   000052   A3           INC     DPTR
+   \   000053   A3           INC     DPTR
+   \   000054   E0           MOVX    A,@DPTR
+   \   000055   F9           MOV     R1,A
+   \   000056   EA           MOV     A,R2
+   \   000057   2400         ADD     A,#0x0
+   \   000059   F5..         MOV     ?V0 + 0,A
+   \   00005B   E4           CLR     A
+   \   00005C   39           ADDC    A,R1
+   \   00005D   F5..         MOV     ?V0 + 1,A
+   \   00005F   7402         MOV     A,#0x2
+   \   000061   78..         MOV     R0,#?V0 + 0
+   \   000063   12....       LCALL   ?US_SHR
+   \   000066   AC..         MOV     R4,?V0 + 0
+   \   000068   AD..         MOV     R5,?V0 + 1
+   \   00006A   7B32         MOV     R3,#0x32
+   \   00006C   7A04         MOV     R2,#0x4
+   \   00006E   7908         MOV     R1,#0x8
+   \   000070   12....       LCALL   ??HalLedBlink?relay
+    782                break;
+    783            }
+    784          }
+   \                     ??ZigLightApp_MessageMSGCB_0:
+   \   000073   02....       LJMP    ?Subroutine0 & 0xFFFF
+    785          
+    786          /*********************************************************************
+    787           * @fn      ZigLightApp_SendPeriodicMessage
+    788           *
+    789           * @brief   Send the periodic message.
+    790           *
+    791           * @param   none
+    792           *
+    793           * @return  none
+    794           */
+    795          //by liu
+    796          //void ZigLightApp_SendPeriodicMessage( void )
+    797          //{
+    798          //  uint8 data[10]={'0','1','2','3','4','5','6','7','8','9'};//自定义数据
+    799          //  if ( AF_DataRequest( &ZigLightApp_Periodic_DstAddr, &ZigLightApp_epDesc,
+    800          //                       ZigLightApp_PERIODIC_CLUSTERID,
+    801          //                       10,//字节数
+    802          //                       data,//指针头
+    803          //                       &ZigLightApp_TransID,
+    804          //                       AF_DISCV_ROUTE,
+    805          //                       AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+    806          //  {
+    807          //  }
+    808          //  else
+    809          //  {
+    810          //    // Error occurred in request to send.
+    811          //  }
+    812          //}
+    813          
+    814          /*********************************************************************
+    815           * @fn      ZigLightApp_SendFlashMessage
+    816           *
+    817           * @brief   Send the flash message to group 1.
+    818           *
+    819           * @param   flashTime - in milliseconds
+    820           *
+    821           * @return  none
+    822           */
+    823          //by liu
+    824          //void ZigLightApp_SendFlashMessage( uint16 flashTime )
+    825          //{
+    826          //  uint8 buffer[3];
+    827          //  buffer[0] = (uint8)(ZigLightAppFlashCounter++);
+    828          //  buffer[1] = LO_UINT16( flashTime );
+    829          //  buffer[2] = HI_UINT16( flashTime );
+    830          //
+    831          //  if ( AF_DataRequest( &ZigLightApp_Flash_DstAddr, &ZigLightApp_epDesc,
+    832          //                       ZigLightApp_FLASH_CLUSTERID,
+    833          //                       3,
+    834          //                       buffer,
+    835          //                       &ZigLightApp_TransID,
+    836          //                       AF_DISCV_ROUTE,
+    837          //                       AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+    838          //  {
+    839          //  }
+    840          //  else
+    841          //  {
+    842          //    // Error occurred in request to send.
+    843          //  }
+    844          //}
+    845          
+    846          /*********************************************************************
+    847          ZigLightApp_SendPointToPointMessage(&Point_To_Point_DstAddr,&ZigLightApp_epDesc,1,&device);
+    848          *********************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    849          void ZigLightApp_SendPointToPointMessage( afAddrType_t * dstaddr , endPointDesc_t * epdesc , uint16 len , uint8 * buf  )
+   \                     ZigLightApp_SendPointToPointMessage:
+    850          {
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   740E         MOV     A,#0xe
+   \   000007   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   F5..         MOV     ?V0 + 0,A
+   \   00000D   A3           INC     DPTR
+   \   00000E   E0           MOVX    A,@DPTR
+   \   00000F   F5..         MOV     ?V0 + 1,A
+   \   000011   7410         MOV     A,#0x10
+   \   000013   12....       LCALL   ?XSTACK_DISP0_8
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   F5..         MOV     ?V0 + 2,A
+   \   000019   A3           INC     DPTR
+   \   00001A   E0           MOVX    A,@DPTR
+   \   00001B   F5..         MOV     ?V0 + 3,A
+    851            
+    852            
+    853            if ( AF_DataRequest( dstaddr,  //发送设备类型编号
+    854                                 epdesc,
+    855                                 ZigLightApp_POINT_TO_POINT_CLUSTERID,
+    856                                 len,
+    857                                 buf,
+    858                                 &ZigLightApp_TransID,
+    859                                 AF_DISCV_ROUTE,
+    860                                 AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+   \   00001D                ; Setup parameters for call to function AF_DataRequest
+   \   00001D   75..1E       MOV     ?V0 + 4,#0x1e
+   \   000020   78..         MOV     R0,#?V0 + 4
+   \   000022   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000025   75....       MOV     ?V0 + 4,#ZigLightApp_TransID & 0xff
+   \   000028   75....       MOV     ?V0 + 5,#(ZigLightApp_TransID >> 8) & 0xff
+   \   00002B   78..         MOV     R0,#?V0 + 4
+   \   00002D   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000030   78..         MOV     R0,#?V0 + 2
+   \   000032   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000035   78..         MOV     R0,#?V0 + 0
+   \   000037   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00003A   75..03       MOV     ?V0 + 0,#0x3
+   \   00003D   75..00       MOV     ?V0 + 1,#0x0
+   \   000040   78..         MOV     R0,#?V0 + 0
+   \   000042   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000045   7920         MOV     R1,#0x20
+   \   000047   12....       LCALL   ??AF_DataRequest?relay
+   \   00004A   7409         MOV     A,#0x9
+   \   00004C   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00004F   E9           MOV     A,R1
+   \   000050   7006         JNZ     ??ZigLightApp_SendPointToPointMessage_0
+    861            {
+    862              ZigLightApp_TransID++;
+   \   000052   90....       MOV     DPTR,#ZigLightApp_TransID
+   \   000055   E0           MOVX    A,@DPTR
+   \   000056   04           INC     A
+   \   000057   F0           MOVX    @DPTR,A
+    863            }
+    864            else
+    865            {
+    866              // Error occurred in request to send.
+    867            }
+    868          
+    869          }
+   \                     ??ZigLightApp_SendPointToPointMessage_0:
+   \   000058   02....       LJMP    ?Subroutine1 & 0xFFFF
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for self_index>`:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for main_state>`:
+   \   000000   11           DB 17
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZigLightApp_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZigLightApp_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SendData_load?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SendData_load
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??serial_data_handle?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    serial_data_handle
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZigLightApp_ProcessZDOMsgs?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZigLightApp_ProcessZDOMsgs
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZigLightApp_ProcessEvent?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZigLightApp_ProcessEvent
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZigLightApp_HandleKeys?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZigLightApp_HandleKeys
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??rfdata_handle?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    rfdata_handle
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZigLightApp_MessageMSGCB?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZigLightApp_MessageMSGCB
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZigLightApp_SendPointToPointMessage?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZigLightApp_SendPointToPointMessage
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "giziwit set mode\\n">`:
+   \   000000   67697A69     DB "giziwit set mode\012"
+   \            77697420
+   \            73657420
+   \            6D6F6465
+   \            0A00    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Group 1">`:
+   \   000000   47726F75     DB "Group 1"
+   \            70203100
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "error cmd type\\r">`:
+   \   000000   6572726F     DB "error cmd type\015"
+   \            7220636D
+   \            64207479
+   \            70650D00
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "can\\'t find MAC device\\r">`:
+   \   000000   63616E27     DB "can't find MAC device\015"
+   \            74206669
+   \            6E64204D
+   \            41432064
+   \            65766963
+   \            650D00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "ZTOOL\\r">`:
+   \   000000   5A544F4F     DB "ZTOOL\015"
+   \            4C0D00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "SERIAL\\r">`:
+   \   000000   53455249     DB "SERIAL\015"
+   \            414C0D00
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {48, 49, 50, 51, 52, 53, 54, 55, 56`:
+   \   000000   30           DB 48
+   \   000001   31           DB 49
+   \   000002   32           DB 50
+   \   000003   33           DB 51
+   \   000004   34           DB 52
+   \   000005   35           DB 53
+   \   000006   36           DB 54
+   \   000007   37           DB 55
+   \   000008   38           DB 56
+   \   000009   39           DB 57
+   \   00000A   41           DB 65
+   \   00000B   42           DB 66
+   \   00000C   43           DB 67
+   \   00000D   44           DB 68
+   \   00000E   45           DB 69
+   \   00000F   46           DB 70
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "devreq">`:
+   \   000000   64657672     DB "devreq"
+   \            657100  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\r\\n">`:
+   \   000000   0D0A00       DB "\015\012"
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "stat:">`:
+   \   000000   73746174     DB "stat:"
+   \            3A00    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "rf error\\r\\n">`:
+   \   000000   72662065     DB "rf error\015\012"
+   \            72726F72
+   \            0D0A00  
+
+   Maximum stack usage in bytes:
+
+     Function                       ISTACK PSTACK XSTACK
+     --------                       ------ ------ ------
+     SendData_load                      3      0     30
+     ZigLightApp_HandleKeys             0      0      0
+     ZigLightApp_Init                   0      0     14
+       -> MT_UartInit                   0      0     22
+       -> MT_UartRegisterTaskID         0      0     22
+       -> HalUARTWrite                  0      0     22
+       -> osal_memset                   0      0     22
+       -> gizwitsInit                   0      0     22
+       -> initList                      0      0     22
+       -> ZDO_RegisterForZDOMsg         0      0     22
+       -> afRegister                    0      0     22
+       -> osal_memcpy                   0      0     28
+       -> aps_AddGroup                  0      0     22
+     ZigLightApp_MessageMSGCB           0      0     22
+       -> mac_table_fresh               0      0     20
+       -> rfdata_handle                 0      0     20
+       -> HalLedBlink                   0      0     20
+     ZigLightApp_ProcessEvent           0      0     16
+       -> osal_msg_receive              0      0     24
+       -> HalUARTWrite                  0      0     24
+       -> serial_data_handle            0      0     24
+       -> osal_msg_deallocate           0      0     24
+       -> osal_msg_receive              0      0     24
+       -> ZigLightApp_ProcessZDOMsgs
+                                        0      0     24
+       -> ZigLightApp_MessageMSGCB      0      0     24
+       -> osal_start_timerEx            0      0     24
+       -> HalUARTWrite                  0      0     24
+       -> detectHandle                  0      0     24
+       -> SendData_load                 0      0     24
+       -> ZigLightApp_SendPointToPointMessage
+                                        0      0     32
+       -> osal_rand                     0      0     24
+       -> osal_start_timerEx            0      0     24
+       -> osal_rand                     0      0     24
+       -> osal_start_timerEx            0      0     24
+       -> osal_rand                     0      0     24
+       -> osal_start_timerEx            0      0     24
+     ZigLightApp_ProcessZDOMsgs         0      0     22
+       -> ZDO_ParseAddrRsp              0      0     20
+       -> searchfromList                0      0     20
+       -> insertLastList                0      0     20
+     ZigLightApp_SendPointToPointMessage
+                                        0      0     57
+       -> AF_DataRequest                0      0     46
+     rfdata_handle                      2      0     44
+       -> HalUARTWrite                  0      0     60
+       -> HalUARTWrite                  0      0     60
+       -> HalUARTWrite                  0      0     60
+       -> SendData_load                 0      0     60
+       -> ZigLightApp_SendPointToPointMessage
+                                        0      0     68
+       -> HalUARTWrite                  0      0     60
+       -> HalUARTWrite                  0      0     60
+       -> HalUARTWrite                  0      0     60
+       -> HalUARTWrite                  0      0     60
+       -> HalUARTWrite                  0      0     60
+       -> HalUARTWrite                  0      0     60
+       -> SendData_load                 0      0     60
+       -> ZigLightApp_SendPointToPointMessage
+                                        0      0     68
+       -> osal_start_timerEx            0      0     60
+       -> HalUARTWrite                  0      0     60
+     serial_data_handle                 1      0     28
+       -> HalUARTWrite                  0      0     24
+       -> APSME_LookupNwkAddr           0      0     24
+       -> HalUARTWrite                  0      0     24
+       -> SendData_load                 0      0     24
+       -> ZigLightApp_SendPointToPointMessage
+                                        0      0     32
+
+
+   Segment part sizes:
+
+     Function/Label                                 Bytes
+     --------------                                 -----
+     ZigLightApp_ClusterList                           6
+     ZigLightApp_SimpleDesc                           12
+     ZigLightApp_epDesc                                6
+     ZigLightApp_TaskID                                1
+     ZigLightApp_NwkState                              1
+     ZigLightApp_TransID                               1
+     ZigLightApp_Periodic_DstAddr                     12
+     ZigLightApp_Flash_DstAddr                        12
+     Point_To_Point_DstAddr                           12
+     Self_DstAddr                                     12
+     Self_zDstAddr                                     9
+     self_index                                        1
+     sbuf                                              6
+     sbuf_len                                          1
+     on_off                                            1
+     white                                             1
+     red                                               1
+     green                                             1
+     blue                                              1
+     gizwits_buf                                      20
+     main_state                                        1
+     nodelist                                          2
+     deletnodelist                                     2
+     newdevice_joinin                                  1
+     ZigLightApp_Group                                18
+     ZigLightAppPeriodicCounter                        1
+     ZigLightAppFlashCounter                           1
+     currentDataPoint                                 20
+     ZigLightApp_Init                                216
+     SendData_load                                   295
+     ?Subroutine12                                     7
+     ?Subroutine11                                     9
+     ?Subroutine7                                      9
+     ?Subroutine17                                    11
+     ?Subroutine24                                     3
+     ??Subroutine27_0                                  5
+     serial_data_handle                              169
+     ?Subroutine0                                      5
+     ?Subroutine21                                     4
+     ?Subroutine19                                    14
+     ?Subroutine8                                     12
+     ?Subroutine9                                     14
+     ?Subroutine25                                    13
+     ZigLightApp_ProcessZDOMsgs                       97
+     ZigLightApp_ProcessEvent                        291
+     ?Subroutine16                                    11
+     ?Subroutine2                                     18
+     ZigLightApp_HandleKeys                            3
+     rfdata_handle                                   451
+     ?Subroutine1                                      5
+     ?Subroutine20                                     7
+     ?Subroutine15                                    12
+     ?Subroutine14                                    12
+     ?Subroutine13                                    26
+     ?Subroutine10                                     9
+     ?Subroutine6                                     17
+     ?Subroutine23                                    22
+     ?Subroutine5                                      5
+     ?Subroutine4                                      4
+     ?Subroutine22                                    11
+     ?Subroutine26                                     9
+     ?Subroutine3                                      6
+     ?Subroutine18                                     9
+     ZigLightApp_MessageMSGCB                        118
+     ZigLightApp_SendPointToPointMessage
+                                                      91
+     ?<Initializer for self_index>                     1
+     ?<Initializer for main_state>                     1
+     ??ZigLightApp_Init?relay                          6
+     ??SendData_load?relay                             6
+     ??serial_data_handle?relay                        6
+     ??ZigLightApp_ProcessZDOMsgs?relay                6
+     ??ZigLightApp_ProcessEvent?relay                  6
+     ??ZigLightApp_HandleKeys?relay                    6
+     ??rfdata_handle?relay                             6
+     ??ZigLightApp_MessageMSGCB?relay                  6
+     ??ZigLightApp_SendPointToPointMessage?relay       6
+     ?<Constant "giziwit set mode\n">                 18
+     ?<Constant "Group 1">                             8
+     ?<Constant "error cmd type\r">                   16
+     ?<Constant "can\'t find MAC device\r">           23
+     ?<Constant "ZTOOL\r">                             7
+     ?<Constant "SERIAL\r">                            8
+     ?<Constant {48, 49, 50, 51, 52, 53, 54, 55, 56   16
+     ?<Constant "devreq">                              7
+     ?<Constant "\r\n">                                3
+     ?<Constant "stat:">                               6
+     ?<Constant "rf error\r\n">                       11
+
+ 
+ 2 020 bytes in segment BANKED_CODE
+    54 bytes in segment BANK_RELAYS
+     2 bytes in segment XDATA_I
+     2 bytes in segment XDATA_ID
+   141 bytes in segment XDATA_ROM_C
+   143 bytes in segment XDATA_Z
+ 
+ 2 076 bytes of CODE  memory
+   141 bytes of CONST memory
+   145 bytes of XDATA memory
+
+Errors: none
+Warnings: 7
